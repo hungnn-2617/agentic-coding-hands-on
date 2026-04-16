@@ -1,0 +1,40 @@
+Section,TC_ID,Page_Name,Category,Sub_Category,Sub_Sub_Category,Test_Objective,Precondition,Test_Data,Steps,Expected_Result,Specs,Priority,Testcase_Type,Test_Result,Executed_Date,Tester,Note
+"ACCESSING","TC_LOGIN_ACC_001","Login","Check access permission","Direct URL access","Unauthenticated user","Verify unauthenticated user can access login page via direct URL","User is not logged in; browser is open","URL: /login (or root URL)","1. Open browser
+2. Navigate to the login page URL","Login page displayed with hero visual; 'LOGIN With Google' button; header and footer visible","Yes","High","Access control and security",,,,
+"ACCESSING","TC_LOGIN_ACC_002","Login","Check access permission","Direct URL access","Authenticated user","Verify authenticated user is redirected away from login page","User is already logged in with a valid session","URL: /login (or root URL)","1. Log in with a valid Google account
+2. Navigate to the login page URL directly","User redirected to homepage or dashboard; login page not displayed","Yes","High","Access control and security",,,,
+"ACCESSING","TC_LOGIN_ACC_003","Login","Check authentication","Google OAuth","Redirect to login when unauthenticated","Verify unauthenticated user accessing a protected page is redirected to login","User is not logged in; browser is open","URL: /protected-page","1. Open browser
+2. Navigate to a protected page URL","User redirected to Login page","Yes","High","Access control and security",,,,
+"GUI","TC_LOGIN_GUI_001","Login","Check layout","Screen-wide layout","Overall structure","Verify overall screen layout and key visual elements","User navigated to login page; user is not logged in","","1. Open login page
+2. Observe overall structure from top to bottom
+3. Verify all primary sections visible","Header displayed at top with Logo (top-left) and Language selector 'VN' (top-right)
+Hero section displayed in center with 'ROOT FURTHER' title; description text; and 'LOGIN With Google' button with Google icon
+Key visual artwork displayed as background
+Footer displayed at bottom with copyright text 'Bản quyền thuộc về Sun* © 2025'","Yes","High","User interface",,,,
+"GUI","TC_LOGIN_GUI_002","Login","Initialize","A.2_Language","Default value/state","Verify language selector shows default language","User navigated to login page","","1. Open login page
+2. Observe language selector in header","Language selector displays 'VN' with country flag icon and downward chevron","Yes","Medium","User interface",,,,
+"FUNCTION","TC_LOGIN_FUN_001","Login","Check component interaction","B.3_Login button","Click","Verify clicking Login button initiates Google OAuth flow","User is on login page; user is not logged in","Valid Google account credentials","1. Open login page
+2. Click 'LOGIN With Google' button
+3. Complete Google OAuth authentication","Google OAuth authentication flow opens
+User authenticated successfully
+User redirected to homepage","Yes","High","Normal_Login",,,,
+"FUNCTION","TC_LOGIN_FUN_002","Login","Check state transition","B.3_Login button","Enabled -> Disabled (loading)","Verify login button transitions to disabled/loading state after click","User is on login page; button is in enabled state","","1. Open login page
+2. Observe button is enabled
+3. Click 'LOGIN With Google' button
+4. Observe button state during processing","Button becomes disabled immediately after click
+Loading spinner displayed on button
+Button does not respond to additional clicks (double-click prevention)","Yes","High","Normal_Login",,,,
+"FUNCTION","TC_LOGIN_FUN_003","Login","Check component interaction","A.2_Language selector","Click","Verify clicking language selector opens dropdown","User is on login page","","1. Open login page
+2. Click on the language selector ('VN')","Language dropdown menu opens with available language options","Yes","Medium","Normal_Others",,,,
+"FUNCTION","TC_LOGIN_FUN_004","Login","Check component interaction","A.2_Language selector","Hover","Verify hovering language selector shows highlight effect","User is on login page","","1. Open login page
+2. Hover mouse over the language selector ('VN')","Highlight effect displayed on language selector
+Cursor changes to pointer","Yes","Low","Normal_Others",,,,
+"FUNCTION","TC_LOGIN_FUN_005","Login","Check navigation behavior","B.3_Login button","Google OAuth flow","Verify Google OAuth login flow for first-time user not logged into Google","User is on login page; no Google account logged in on browser","Valid Google account credentials","1. Open login page (no Google account logged in on browser)
+2. Click 'LOGIN With Google' button
+3. Google login screen appears
+4. Enter Google credentials and authenticate","Google login screen displayed
+After authentication; user logged in successfully and redirected to homepage","Yes","High","Normal_Login",,,,
+"FUNCTION","TC_LOGIN_FUN_006","Login","Check navigation behavior","B.3_Login button","Redirect after successful login","Verify user is redirected to homepage after successful Google login","User is on login page; user has a valid Google account","Valid Google account credentials","1. Open login page
+2. Click 'LOGIN With Google' button
+3. Complete Google OAuth authentication successfully","User redirected to homepage/dashboard after successful login
+Login page no longer displayed","Yes","High","Normal_Login",,,,
