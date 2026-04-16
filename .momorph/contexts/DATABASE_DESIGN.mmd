@@ -1,0 +1,146 @@
+erDiagram
+    auth_users {
+        uuid id PK
+        varchar email UK
+        jsonb raw_user_meta_data
+        timestamptz created_at
+    }
+
+    profiles {
+        uuid id PK "FK auth_users"
+        varchar full_name
+        varchar avatar_url
+        bigint department_id FK
+        varchar role "user | admin"
+        varchar locale "vi | en"
+        timestamptz created_at
+        timestamptz updated_at
+        timestamptz deleted_at
+    }
+
+    departments {
+        bigint id PK
+        varchar name UK
+        timestamptz created_at
+    }
+
+    award_categories {
+        bigint id PK
+        varchar name
+        varchar slug UK
+        text description
+        integer quantity
+        varchar unit_type "individual | team | unit"
+        decimal prize_value
+        varchar image_url
+        integer display_order
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    hashtags {
+        bigint id PK
+        varchar name UK
+        timestamptz created_at
+    }
+
+    campaigns {
+        bigint id PK
+        varchar name
+        text description
+        timestamptz start_date
+        timestamptz end_date
+        integer heart_multiplier
+        boolean is_active
+        timestamptz created_at
+        timestamptz updated_at
+        timestamptz deleted_at
+    }
+
+    kudos {
+        bigint id PK
+        uuid sender_id FK
+        uuid receiver_id FK
+        varchar title
+        text content
+        boolean is_anonymous
+        varchar anonymous_name
+        varchar status "published | spam | hidden"
+        timestamptz created_at
+        timestamptz updated_at
+        timestamptz deleted_at
+    }
+
+    kudo_hashtags {
+        bigint id PK
+        bigint kudo_id FK
+        bigint hashtag_id FK
+    }
+
+    kudo_images {
+        bigint id PK
+        bigint kudo_id FK
+        varchar image_url
+        integer display_order
+        timestamptz created_at
+    }
+
+    kudo_mentions {
+        bigint id PK
+        bigint kudo_id FK
+        uuid mentioned_user_id FK
+    }
+
+    kudo_likes {
+        bigint id PK
+        bigint kudo_id FK
+        uuid user_id FK
+        boolean is_special_day
+        integer heart_value
+        timestamptz created_at
+    }
+
+    badges {
+        bigint id PK
+        varchar name UK
+        text description
+        varchar image_url
+        decimal drop_rate
+        timestamptz created_at
+    }
+
+    secret_boxes {
+        bigint id PK
+        uuid user_id FK
+        bigint badge_id FK
+        boolean is_opened
+        timestamptz opened_at
+        timestamptz created_at
+    }
+
+    notifications {
+        bigint id PK
+        uuid user_id FK
+        varchar type
+        varchar title
+        text content
+        varchar reference_type
+        bigint reference_id
+        boolean is_read
+        timestamptz created_at
+    }
+
+    auth_users ||--|| profiles : "creates"
+    departments ||--o{ profiles : "has"
+    profiles ||--o{ kudos : "sends"
+    profiles ||--o{ kudos : "receives"
+    kudos ||--o{ kudo_hashtags : "tagged_with"
+    hashtags ||--o{ kudo_hashtags : "used_in"
+    kudos ||--o{ kudo_images : "has"
+    kudos ||--o{ kudo_mentions : "mentions"
+    profiles ||--o{ kudo_mentions : "mentioned_in"
+    kudos ||--o{ kudo_likes : "liked_by"
+    profiles ||--o{ kudo_likes : "likes"
+    profiles ||--o{ secret_boxes : "owns"
+    badges ||--o{ secret_boxes : "awarded_in"
+    profiles ||--o{ notifications : "receives"
