@@ -14,8 +14,8 @@
 | Metric | Count |
 |--------|-------|
 | Total Screens | 140 |
-| Discovered | 1 |
-| Remaining | 139 |
+| Discovered | 2 |
+| Remaining | 138 |
 | Completion | 1% |
 
 ---
@@ -70,7 +70,7 @@
 | 44 | Dropdown list status | UBeTfWM-AP | [link](https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/UBeTfWM-AP) | pending | - | - | - |
 | 45 | **Dropdown-ngon ngu** | hUyaaugye2 | [link](https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/hUyaaugye2) | **discovered** | [dropdown_ngon_ngu.md](screen_specs/dropdown_ngon_ngu.md) | PUT /users/me/language | Homepage SAA, Login |
 | 46 | Dropdown Phong ban | WXK5AYB_rG | [link](https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/WXK5AYB_rG) | pending | - | GET /departments | - |
-| 47 | Dropdown-profile | z4sCl3_Qtk | [link](https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/z4sCl3_Qtk) | pending | - | GET /users/me | - |
+| 47 | **Dropdown-profile** | z4sCl3_Qtk | [link](https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/z4sCl3_Qtk) | **discovered** | [dropdown_profile.md](screen_specs/dropdown_profile.md) | GET /users/me, POST /auth/logout | Profile ban than, Login |
 | 48 | Dropdown-profile Admin | 54rekaCHG1 | [link](https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/54rekaCHG1) | pending | - | GET /users/me | - |
 | 49 | Dropdown Role | GLgos3fOmz | [link](https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/GLgos3fOmz) | pending | - | GET /roles | - |
 | 50 | Dropdown search user admin | BFf3J-wRPk | [link](https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/BFf3J-wRPk) | pending | - | GET /users?search= | - |
@@ -185,7 +185,7 @@ flowchart TD
 
     subgraph Overlays["Overlays & Dropdowns"]
         DropdownLanguage[Dropdown-ngon ngu]
-        DropdownProfile[Dropdown-profile]
+        DropdownProfile[Dropdown-profile]:::discovered
         DropdownProfileAdmin[Dropdown-profile Admin]
         AlertOverlay[Alert Overlay]
     end
@@ -229,7 +229,8 @@ flowchart TD
     HomepageSAA --> OpenSecretBox
     DropdownLanguage --> HomepageSAA
     DropdownLanguage --> Login
-    DropdownProfile --> ProfileSelf
+    DropdownProfile -->|"Click Profile"| ProfileSelf
+    DropdownProfile -->|"Click Logout"| Login
     DropdownProfile --> AdminOverview
     WriteKudo --> ViewKudo
     ViewKudo --> EditKudo
@@ -270,7 +271,7 @@ flowchart TD
 | Profile ban than | Own profile page | Dropdown-profile, Header |
 | Profile nguoi khac | Other user profile | Avatar click, Search |
 | Hover Avatar info user | Quick user info tooltip | Avatar hover |
-| Dropdown-profile | User profile dropdown menu | Header avatar |
+| Dropdown-profile | User profile dropdown (Profile + Logout) | Header avatar click |
 | Dropdown-profile Admin | Admin profile dropdown | Header avatar (admin) |
 
 ### Group: Admin Panel
@@ -350,6 +351,7 @@ flowchart TD
 | Endpoint | Method | Screens Using | Purpose |
 |----------|--------|---------------|---------|
 | /auth/login | POST | Login, [iOS] Login | User authentication |
+| /auth/logout | POST | Dropdown-profile | User logout, session invalidation |
 | /users/me | GET | Dropdown-profile, Profile ban than, [iOS] Profile ban than | Get current user |
 | /users/me | PUT | Profile ban than | Update user info |
 | /users/me/language | PUT | Dropdown-ngon ngu, Language Dropdown, [iOS] Language dropdown | Change language preference |
@@ -453,6 +455,7 @@ flowchart LR
 | Date | Action | Screens | Notes |
 |------|--------|---------|-------|
 | 2026-04-17 | Initial discovery | Dropdown-ngon ngu (hUyaaugye2) | Started with language dropdown component. 140 total frames identified. |
+| 2026-04-17 | Screen discovery | Dropdown-profile (z4sCl3_Qtk) | Profile dropdown menu with Profile navigation and Logout action. Discovered /auth/logout endpoint. |
 
 ---
 

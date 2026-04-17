@@ -29,7 +29,9 @@
       "mcp__playwright__browser_evaluate",
       "mcp__playwright__browser_wait_for",
       "Bash(npx vitest *)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(ls -la /Users/nguyen.ngoc.hungb/Documents/SunProject/ssa-2025-ex/ssa-2025-ex/tailwind.config.*)",
+      "Bash(ls *)"
     ]
   },
   "enableAllProjectMcpServers": true,

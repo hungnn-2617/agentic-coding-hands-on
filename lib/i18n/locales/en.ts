@@ -22,7 +22,7 @@ export const en: Translations = {
   // Profile
   'profile.ariaLabel': 'User menu',
   'profile.profile': 'Profile',
-  'profile.signOut': 'Sign out',
+  'profile.signOut': 'Logout',
   'profile.adminDashboard': 'Admin Dashboard',
 
   // Notification
