@@ -220,13 +220,6 @@ public/
 10. **TDD**: Write `hooks/__tests__/use-click-outside.test.ts` first — test: calls callback on outside click, ignores inside click
 11. Create `hooks/use-click-outside.ts` — extract click-outside detection from existing `LanguageSelector` for reuse, implement to pass tests
 
-**Environment variables** (add to `.env.local`):
-```
-NEXT_PUBLIC_EVENT_START_DATE=2025-12-26T18:30:00+07:00  # already exists
-NEXT_PUBLIC_EVENT_VENUE=Âu Cơ Art Center                # NEW
-NEXT_PUBLIC_EVENT_LIVESTREAM_NOTE=Tường thuật trực tiếp qua sóng Livestream  # NEW
-```
-
 ### Phase 1: Route Group & Shared Layout (US3 - Navigation)
 
 **Goal**: Establish the `(main)` route group with full header/footer navigation. This is the foundation all other pages will use.

@@ -1,6 +1,12 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import type { ReactNode } from 'react';
+import { LanguageProvider } from '@/lib/i18n';
 import { LoginButton } from '../login-button';
+
+function wrapper({ children }: { children: ReactNode }) {
+  return <LanguageProvider>{children}</LanguageProvider>;
+}
 
 // Mock the Supabase client
 const mockSignInWithOAuth = vi.fn();
@@ -23,7 +29,7 @@ describe('LoginButton', () => {
   });
 
   it('renders with correct text and Google icon', () => {
-    render(<LoginButton />);
+    render(<LoginButton />, { wrapper });
 
     expect(screen.getByText('LOGIN With Google')).toBeInTheDocument();
     expect(screen.getByRole('button')).toBeInTheDocument();
@@ -31,7 +37,7 @@ describe('LoginButton', () => {
   });
 
   it('calls signInWithOAuth with google provider when clicked', async () => {
-    render(<LoginButton />);
+    render(<LoginButton />, { wrapper });
 
     const button = screen.getByRole('button');
     fireEvent.click(button);
@@ -51,7 +57,7 @@ describe('LoginButton', () => {
     // Make the signInWithOAuth never resolve to keep loading state
     mockSignInWithOAuth.mockImplementation(() => new Promise(() => {}));
 
-    render(<LoginButton />);
+    render(<LoginButton />, { wrapper });
 
     const button = screen.getByRole('button');
     expect(button).not.toBeDisabled();
@@ -67,7 +73,7 @@ describe('LoginButton', () => {
   it('prevents double-click by disabling immediately', async () => {
     mockSignInWithOAuth.mockImplementation(() => new Promise(() => {}));
 
-    render(<LoginButton />);
+    render(<LoginButton />, { wrapper });
 
     const button = screen.getByRole('button');
 
@@ -84,7 +90,7 @@ describe('LoginButton', () => {
   it('shows error message when Supabase is not configured', async () => {
     mockIsSupabaseConfigured.mockReturnValue(false);
 
-    render(<LoginButton />);
+    render(<LoginButton />, { wrapper });
 
     const button = screen.getByRole('button');
     fireEvent.click(button);
@@ -99,7 +105,7 @@ describe('LoginButton', () => {
     const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
     mockSignInWithOAuth.mockRejectedValue(new Error('OAuth failed'));
 
-    render(<LoginButton />);
+    render(<LoginButton />, { wrapper });
 
     const button = screen.getByRole('button');
     fireEvent.click(button);

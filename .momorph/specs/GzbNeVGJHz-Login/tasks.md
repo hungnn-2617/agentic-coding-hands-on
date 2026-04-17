@@ -203,11 +203,23 @@
 
 ---
 
+## Phase 7: UI Bug Fix — Figma vs Implementation Comparison
+
+**Purpose**: Compare Figma design with actual UI using Playwright, fix all visual discrepancies
+
+- [x] T044 [P] Fix SAA logo height in Header: change from 48px to 56px per design-style.md spec (Logo height: 56px) | components/ui/header.tsx
+- [x] T045 [P] Import Montserrat Alternates font in root layout: add `Montserrat_Alternates` from `next/font/google` with weight 700, set CSS variable `--font-montserrat-alternates` | app/layout.tsx
+- [x] T046 Fix Footer font family: change from Montserrat to Montserrat Alternates per design-style.md (Footer uses `font-family: 'Montserrat Alternates'` 16/700) | components/ui/footer.tsx
+
+**Checkpoint**: ✅ All 3 UI bugs fixed. Verified via Playwright computed style evaluation. All 14 tests passing. Build succeeds.
+
+---
+
 ## Summary
 
-**Implementation Status**: ✅ Complete (43/43 tasks done)
+**Implementation Status**: ✅ Complete (46/46 tasks done)
 
-**Test Status**: ✅ All 13 tests passing
+**Test Status**: ✅ All 14 tests passing
 
 **Build Status**: ✅ Passing (`next build` completes with zero errors)
 

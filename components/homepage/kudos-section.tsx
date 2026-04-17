@@ -1,8 +1,13 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { useLanguage } from '@/hooks/use-language';
 import { ArrowRightIcon } from '@/components/icons';
 
 export function KudosSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="w-full max-w-[1224px] mx-auto px-4 sm:px-12 lg:px-0">
       <div className="relative w-full max-w-[1120px] mx-auto h-auto lg:h-[500px] rounded-2xl overflow-hidden bg-[#0F0F0F]">
@@ -21,21 +26,18 @@ export function KudosSection() {
           <div className="flex flex-col gap-6 lg:gap-8 p-8 sm:p-12 lg:p-16 max-w-full lg:max-w-[457px] justify-center">
             <div className="flex flex-col gap-2">
               <span className="text-white text-sm font-bold uppercase tracking-[0.1px]">
-                ĐIỂM MỚI CỦA SAA 2025
+                {t('kudos.badge')}
               </span>
               <p className="text-white text-2xl font-bold leading-8">
-                Phong trào ghi nhận
+                {t('kudos.subtitle')}
               </p>
               <h2 className="text-[#FFEA9E] text-[32px] sm:text-[40px] lg:text-[57px] font-bold leading-tight lg:leading-[64px] tracking-[-0.25px]">
-                Sun* Kudos
+                {t('kudos.title')}
               </h2>
             </div>
 
             <p className="text-white text-base font-bold leading-6 tracking-[0.5px] text-justify">
-              Hoạt động ghi nhận và cảm ơn đồng nghiệp - lần đầu tiên được diễn ra dành cho tất cả Sunner.
-              Hoạt động sẽ được triển khai vào tháng 11/2025, khuyến khích người Sun* chia sẻ những lời ghi nhận,
-              cảm ơn đồng nghiệp trên hệ thống do BTC công bố. Đây sẽ là chất liệu để Hội đồng Heads tham khảo
-              trong quá trình lựa chọn người đạt giải.
+              {t('kudos.description')}
             </p>
 
             <Link
@@ -49,7 +51,7 @@ export function KudosSection() {
                 focus:outline-2 focus:outline-[#FFEA9E] focus:outline-offset-2
               "
             >
-              Chi tiết
+              {t('kudos.detailButton')}
               <ArrowRightIcon className="w-6 h-6" />
             </Link>
           </div>

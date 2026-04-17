@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { useLanguage } from '@/hooks/use-language';
 import type { AwardCategory } from '@/types/awards';
 import { ArrowRightIcon } from '@/components/icons';
 
@@ -8,6 +11,12 @@ interface AwardCardProps {
 }
 
 export function AwardCard({ award }: AwardCardProps) {
+  const { locale, t } = useLanguage();
+  const description =
+    locale === 'en'
+      ? (award.descriptionEn ?? award.description)
+      : award.description;
+
   return (
     <Link
       href={`/awards-information#${award.slug}`}
@@ -17,7 +26,7 @@ export function AwardCard({ award }: AwardCardProps) {
         hover:-translate-y-1
         focus-within:outline-2 focus-within:outline-[#FFEA9E] focus-within:outline-offset-4
       "
-      aria-label={`${award.name} — ${award.description}`}
+      aria-label={`${award.name} — ${description}`}
     >
       {/* Thumbnail — glow ring background + badge text overlay */}
       <div
@@ -57,13 +66,13 @@ export function AwardCard({ award }: AwardCardProps) {
           {award.name}
         </h3>
         <p className="text-white text-base font-normal leading-6 tracking-[0.5px] line-clamp-2">
-          {award.description}
+          {description}
         </p>
       </div>
 
       {/* Detail Link */}
       <div className="flex items-center gap-2 py-4 text-white text-base font-medium leading-6 tracking-[0.15px] group-hover:text-[#FFEA9E] transition-colors">
-        Chi tiết
+        {t('awards.detail')}
         <ArrowRightIcon className="w-6 h-6" />
       </div>
     </Link>

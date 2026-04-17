@@ -1,6 +1,7 @@
 'use client';
 
 import { useCountdown } from '@/hooks/use-countdown';
+import { useLanguage } from '@/hooks/use-language';
 import { DigitCard } from '@/components/homepage/digit-card';
 
 function CountdownUnit({ value, label }: { value: string; label: string }) {
@@ -21,23 +22,24 @@ function CountdownUnit({ value, label }: { value: string; label: string }) {
 
 export function CountdownTimer() {
   const { days, hours, minutes, isExpired } = useCountdown();
+  const { t } = useLanguage();
 
   return (
     <div className="flex flex-col gap-4">
       {!isExpired && (
         <p className="text-[#FFEA9E] text-2xl font-bold leading-8">
-          Coming soon
+          {t('countdown.comingSoon')}
         </p>
       )}
       <div
         className="flex items-center gap-10"
         role="timer"
         aria-live="polite"
-        aria-label={`${days} days, ${hours} hours, ${minutes} minutes until event`}
+        aria-label={t('countdown.ariaLabel', { days, hours, minutes })}
       >
-        <CountdownUnit value={days} label="Days" />
-        <CountdownUnit value={hours} label="Hours" />
-        <CountdownUnit value={minutes} label="Minutes" />
+        <CountdownUnit value={days} label={t('countdown.days')} />
+        <CountdownUnit value={hours} label={t('countdown.hours')} />
+        <CountdownUnit value={minutes} label={t('countdown.minutes')} />
       </div>
     </div>
   );
