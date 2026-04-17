@@ -8,3 +8,4 @@ export { UserIcon } from './user-icon';
 export { HamburgerIcon } from './hamburger-icon';
 export { PenIcon } from './pen-icon';
 export { SaaSmallIcon } from './saa-small-icon';
+export { ChevronRightIcon } from './chevron-right-icon';
