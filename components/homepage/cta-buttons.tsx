@@ -1,7 +1,12 @@
+'use client';
+
 import Link from 'next/link';
+import { useLanguage } from '@/hooks/use-language';
 import { ArrowRightIcon } from '@/components/icons';
 
 export function CTAButtons() {
+  const { t } = useLanguage();
+
   return (
     <div className="flex flex-col sm:flex-row gap-4 sm:gap-10">
       <Link
@@ -16,7 +21,7 @@ export function CTAButtons() {
           focus:outline-2 focus:outline-[#FFEA9E] focus:outline-offset-2
         "
       >
-        ABOUT AWARDS
+        {t('cta.aboutAwards')}
         <ArrowRightIcon className="w-6 h-6" />
       </Link>
 
@@ -33,7 +38,7 @@ export function CTAButtons() {
           focus:outline-2 focus:outline-[#FFEA9E] focus:outline-offset-2
         "
       >
-        ABOUT KUDOS
+        {t('cta.aboutKudos')}
         <ArrowRightIcon className="w-6 h-6" />
       </Link>
     </div>

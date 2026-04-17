@@ -1,17 +1,21 @@
 'use client';
 
 import { useState, useRef, useCallback } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useLanguage } from '@/hooks/use-language';
 import { UserIcon } from '@/components/icons';
 import { useClickOutside } from '@/hooks/use-click-outside';
 import { createClient } from '@/lib/supabase/client';
 
 interface ProfileDropdownProps {
   userEmail?: string;
+  avatarUrl?: string;
   isAdmin?: boolean;
 }
 
-export function ProfileDropdown({ userEmail, isAdmin = false }: ProfileDropdownProps) {
+export function ProfileDropdown({ userEmail, avatarUrl, isAdmin = false }: ProfileDropdownProps) {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -30,18 +34,28 @@ export function ProfileDropdown({ userEmail, isAdmin = false }: ProfileDropdownP
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="User menu"
+        aria-label={t('profile.ariaLabel')}
         aria-expanded={isOpen}
         aria-haspopup="menu"
-        className="
+        className={`
           w-10 h-10 flex items-center justify-center
-          border border-[#998C5F] rounded cursor-pointer
-          transition-colors duration-150
+          ${avatarUrl ? 'rounded-full overflow-hidden' : 'border border-[#998C5F] rounded'}
+          cursor-pointer transition-colors duration-150
           hover:border-[#FFEA9E]
           focus:outline-2 focus:outline-[#FFEA9E] focus:outline-offset-2
-        "
+        `}
       >
-        <UserIcon className="w-6 h-6 text-white" />
+        {avatarUrl ? (
+          <Image
+            src={avatarUrl}
+            alt=""
+            width={40}
+            height={40}
+            className="w-10 h-10 rounded-full object-cover"
+          />
+        ) : (
+          <UserIcon className="w-6 h-6 text-white" />
+        )}
       </button>
 
       {isOpen && (
@@ -59,7 +73,7 @@ export function ProfileDropdown({ userEmail, isAdmin = false }: ProfileDropdownP
             onClick={() => { setIsOpen(false); router.push('/profile'); }}
             className="w-full text-left px-4 py-3 text-white text-sm font-bold hover:bg-white/10 cursor-pointer transition-colors"
           >
-            Profile
+            {t('profile.profile')}
           </button>
           {isAdmin && (
             <button
@@ -67,7 +81,7 @@ export function ProfileDropdown({ userEmail, isAdmin = false }: ProfileDropdownP
               onClick={() => { setIsOpen(false); router.push('/admin'); }}
               className="w-full text-left px-4 py-3 text-white text-sm font-bold hover:bg-white/10 cursor-pointer transition-colors"
             >
-              Admin Dashboard
+              {t('profile.adminDashboard')}
             </button>
           )}
           <button
@@ -75,7 +89,7 @@ export function ProfileDropdown({ userEmail, isAdmin = false }: ProfileDropdownP
             onClick={handleSignOut}
             className="w-full text-left px-4 py-3 text-white text-sm font-bold hover:bg-white/10 cursor-pointer transition-colors border-t border-white/10"
           >
-            Sign out
+            {t('profile.signOut')}
           </button>
         </div>
       )}

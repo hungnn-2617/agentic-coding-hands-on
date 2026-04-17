@@ -3,12 +3,14 @@
 import { useState } from 'react';
 import { createClient, isSupabaseConfigured } from '@/lib/supabase/client';
 import { GoogleIcon } from '@/components/icons';
+import { useLanguage } from '@/hooks/use-language';
 
 /**
  * Login button component that initiates Google OAuth via Supabase.
  * Shows loading state and prevents double-click.
  */
 export function LoginButton() {
+  const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -20,7 +22,7 @@ export function LoginButton() {
 
     // Check if Supabase is configured
     if (!isSupabaseConfigured()) {
-      setError('Supabase chưa được cấu hình. Vui lòng kiểm tra file .env.local');
+      setError(t('login.error.supabase'));
       setIsLoading(false);
       return;
     }
@@ -38,7 +40,7 @@ export function LoginButton() {
       });
     } catch (err) {
       console.error('Login error:', err);
-      setError('Đã xảy ra lỗi khi đăng nhập. Vui lòng thử lại.');
+      setError(t('login.error.generic'));
       setIsLoading(false);
     }
   }
@@ -85,11 +87,11 @@ export function LoginButton() {
                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
               />
             </svg>
-            <span>Đang đăng nhập...</span>
+            <span>{t('login.button.loading')}</span>
           </>
         ) : (
           <>
-            <span>LOGIN With Google</span>
+            <span>{t('login.button.text')}</span>
             <GoogleIcon className="w-6 h-6" />
           </>
         )}

@@ -20,8 +20,8 @@ export function Header({ children }: HeaderProps) {
           src="/images/saa-logo.png"
           alt="SAA 2025 Logo"
           width={52}
-          height={48}
-          className="w-[52px] h-12 object-contain"
+          height={56}
+          className="w-[52px] h-14 object-contain"
           priority
         />
       </div>

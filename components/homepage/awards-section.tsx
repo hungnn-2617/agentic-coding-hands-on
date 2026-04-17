@@ -1,7 +1,12 @@
+'use client';
+
+import { useLanguage } from '@/hooks/use-language';
 import { AWARD_CATEGORIES } from '@/lib/data/awards';
 import { AwardCard } from '@/components/homepage/award-card';
 
 export function AwardsSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="w-full max-w-[1224px] mx-auto px-4 sm:px-12 lg:px-0">
       {/* Divider */}
@@ -10,13 +15,13 @@ export function AwardsSection() {
       {/* Header */}
       <div className="flex flex-col gap-4 mt-4">
         <p className="text-white text-2xl font-bold leading-8">
-          Sun* annual awards 2025
+          {t('awards.caption')}
         </p>
         <h2 className="text-[#FFEA9E] text-[32px] sm:text-[40px] lg:text-[57px] font-bold leading-tight lg:leading-[64px] tracking-[-0.25px]">
-          Hệ thống giải thưởng
+          {t('awards.title')}
         </h2>
         <p className="text-white text-base font-normal leading-6 tracking-[0.5px]">
-          Các hạng mục sẽ được trao giải theo TOP những người xuất sắc nhất.
+          {t('awards.description')}
         </p>
       </div>
 
@@ -29,7 +34,7 @@ export function AwardsSection() {
         </div>
       ) : (
         <div className="mt-12 text-center">
-          <p className="text-white/50 text-base">Award categories will be announced soon.</p>
+          <p className="text-white/50 text-base">{t('awards.emptyState')}</p>
         </div>
       )}
     </section>

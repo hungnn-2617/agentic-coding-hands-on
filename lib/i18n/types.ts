@@ -1,0 +1,70 @@
+export type Locale = 'vi' | 'en';
+
+export type TranslationKey =
+  // Login
+  | 'login.hero.line1'
+  | 'login.hero.line2'
+  | 'login.button.text'
+  | 'login.button.loading'
+  | 'login.error.supabase'
+  | 'login.error.generic'
+  // Common
+  | 'common.footer.copyright'
+  | 'common.languageSelector.ariaLabel'
+  | 'common.languageSelector.listAriaLabel'
+  // Navigation
+  | 'nav.about'
+  | 'nav.awards'
+  | 'nav.kudos'
+  // Profile
+  | 'profile.ariaLabel'
+  | 'profile.profile'
+  | 'profile.signOut'
+  | 'profile.adminDashboard'
+  // Notification
+  | 'notification.ariaLabel'
+  | 'notification.unread'
+  | 'notification.empty'
+  // Countdown
+  | 'countdown.comingSoon'
+  | 'countdown.days'
+  | 'countdown.hours'
+  | 'countdown.minutes'
+  | 'countdown.ariaLabel'
+  // Event
+  | 'event.time'
+  | 'event.venue'
+  | 'event.venueValue'
+  | 'event.livestreamNote'
+  // CTA
+  | 'cta.aboutAwards'
+  | 'cta.aboutKudos'
+  // About
+  | 'about.paragraph1'
+  | 'about.paragraph2'
+  | 'about.paragraph3'
+  | 'about.paragraph4'
+  | 'about.paragraph5'
+  | 'about.quote'
+  | 'about.quoteSubtitle'
+  // Awards
+  | 'awards.caption'
+  | 'awards.title'
+  | 'awards.description'
+  | 'awards.emptyState'
+  | 'awards.detail'
+  // Kudos
+  | 'kudos.badge'
+  | 'kudos.subtitle'
+  | 'kudos.title'
+  | 'kudos.description'
+  | 'kudos.detailButton'
+  // Footer
+  | 'footer.about'
+  | 'footer.awards'
+  | 'footer.kudos'
+  | 'footer.standards';
+
+export type Translations = Record<TranslationKey, string>;
+
+export type TranslationParams = Record<string, string | number>;

@@ -1,3 +1,7 @@
+'use client';
+
+import { useLanguage } from '@/hooks/use-language';
+
 function formatDate(isoDate: string): string {
   const date = new Date(isoDate);
   if (isNaN(date.getTime())) return '';
@@ -8,10 +12,8 @@ function formatDate(isoDate: string): string {
 }
 
 export function EventInfo() {
+  const { t } = useLanguage();
   const eventDate = process.env.NEXT_PUBLIC_EVENT_START_DATE ?? '';
-  const venue = process.env.NEXT_PUBLIC_EVENT_VENUE ?? '';
-  const livestreamNote = process.env.NEXT_PUBLIC_EVENT_LIVESTREAM_NOTE ?? '';
-
   const formattedDate = formatDate(eventDate);
 
   return (
@@ -20,29 +22,25 @@ export function EventInfo() {
         {formattedDate && (
           <div className="flex items-baseline gap-2">
             <span className="text-white text-base font-bold leading-6 tracking-[0.15px]">
-              Thời gian:
+              {t('event.time')}
             </span>
             <span className="text-[#FFEA9E] text-2xl font-bold leading-8">
               {formattedDate}
             </span>
           </div>
         )}
-        {venue && (
-          <div className="flex items-baseline gap-2">
-            <span className="text-white text-base font-bold leading-6 tracking-[0.15px]">
-              Địa điểm:
-            </span>
-            <span className="text-[#FFEA9E] text-2xl font-bold leading-8">
-              {venue}
-            </span>
-          </div>
-        )}
+        <div className="flex items-baseline gap-2">
+          <span className="text-white text-base font-bold leading-6 tracking-[0.15px]">
+            {t('event.venue')}
+          </span>
+          <span className="text-[#FFEA9E] text-2xl font-bold leading-8">
+            {t('event.venueValue')}
+          </span>
+        </div>
       </div>
-      {livestreamNote && (
-        <p className="text-white text-base font-bold leading-6 tracking-[0.5px]">
-          {livestreamNote}
-        </p>
-      )}
+      <p className="text-white text-base font-bold leading-6 tracking-[0.5px]">
+        {t('event.livestreamNote')}
+      </p>
     </div>
   );
 }

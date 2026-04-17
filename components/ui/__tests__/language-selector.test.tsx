@@ -1,10 +1,19 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import type { ReactNode } from 'react';
+import { LanguageProvider } from '@/lib/i18n';
 import { LanguageSelector } from '../language-selector';
+
+function wrapper({ children }: { children: ReactNode }) {
+  return <LanguageProvider>{children}</LanguageProvider>;
+}
+
+function renderSelector() {
+  return render(<LanguageSelector />, { wrapper });
+}
 
 describe('LanguageSelector', () => {
   beforeEach(() => {
-    // Clear cookies before each test
     document.cookie = 'locale=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
   });
 
@@ -13,23 +22,16 @@ describe('LanguageSelector', () => {
   });
 
   it('renders current language "VN" with flag icon and chevron', () => {
-    render(<LanguageSelector />);
-
+    renderSelector();
     expect(screen.getByText('VN')).toBeInTheDocument();
-    expect(screen.getByLabelText('Select language')).toBeInTheDocument();
+    expect(screen.getByLabelText('Chọn ngôn ngữ')).toBeInTheDocument();
   });
 
   it('toggles dropdown open when clicked', async () => {
-    render(<LanguageSelector />);
-
-    const button = screen.getByLabelText('Select language');
-
-    // Dropdown should be closed initially
+    renderSelector();
+    const button = screen.getByLabelText('Chọn ngôn ngữ');
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
-
-    // Click to open
     fireEvent.click(button);
-
     await waitFor(() => {
       expect(screen.getByRole('listbox')).toBeInTheDocument();
       expect(screen.getAllByRole('option')).toHaveLength(2);
@@ -37,17 +39,12 @@ describe('LanguageSelector', () => {
   });
 
   it('toggles dropdown closed when clicked again', async () => {
-    render(<LanguageSelector />);
-
-    const button = screen.getByLabelText('Select language');
-
-    // Open
+    renderSelector();
+    const button = screen.getByLabelText('Chọn ngôn ngữ');
     fireEvent.click(button);
     await waitFor(() => {
       expect(screen.getByRole('listbox')).toBeInTheDocument();
     });
-
-    // Close
     fireEvent.click(button);
     await waitFor(() => {
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
@@ -56,108 +53,128 @@ describe('LanguageSelector', () => {
 
   it('closes dropdown when clicking outside', async () => {
     render(
-      <div>
+      <LanguageProvider>
         <LanguageSelector />
         <button data-testid="outside">Outside</button>
-      </div>
+      </LanguageProvider>,
     );
-
-    const selectorButton = screen.getByLabelText('Select language');
-
-    // Open dropdown
+    const selectorButton = screen.getByLabelText('Chọn ngôn ngữ');
     fireEvent.click(selectorButton);
     await waitFor(() => {
       expect(screen.getByRole('listbox')).toBeInTheDocument();
     });
-
-    // Click outside
     fireEvent.mouseDown(screen.getByTestId('outside'));
-
     await waitFor(() => {
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     });
   });
 
-  it('updates display and closes dropdown when selecting an option', async () => {
-    render(<LanguageSelector />);
-
-    const button = screen.getByLabelText('Select language');
-
-    // Initially shows VN
+  it('updates display and closes dropdown when selecting EN', async () => {
+    renderSelector();
+    const button = screen.getByLabelText('Chọn ngôn ngữ');
     expect(screen.getByText('VN')).toBeInTheDocument();
-
-    // Open dropdown
     fireEvent.click(button);
     await waitFor(() => {
       expect(screen.getByRole('listbox')).toBeInTheDocument();
     });
-
-    // Select EN option
     const enOption = screen.getAllByRole('option').find(
-      (option) => option.textContent?.includes('EN')
+      (option) => option.textContent?.includes('EN'),
     );
-    expect(enOption).toBeDefined();
     fireEvent.click(enOption!);
-
     await waitFor(() => {
-      // Dropdown should be closed
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
-      // Display should show EN (the button text)
-      const updatedButton = screen.getByLabelText('Select language');
-      expect(updatedButton.textContent).toContain('EN');
+      expect(screen.getByText('EN')).toBeInTheDocument();
     });
   });
 
-  it('sets locale cookie when selecting an option', async () => {
-    render(<LanguageSelector />);
-
-    const button = screen.getByLabelText('Select language');
-
-    // Open dropdown and select EN
+  it('sets locale cookie via context when selecting EN', async () => {
+    renderSelector();
+    const button = screen.getByLabelText('Chọn ngôn ngữ');
     fireEvent.click(button);
     await waitFor(() => {
       expect(screen.getByRole('listbox')).toBeInTheDocument();
     });
-
     const enOption = screen.getAllByRole('option').find(
-      (option) => option.textContent?.includes('EN')
+      (option) => option.textContent?.includes('EN'),
     );
     fireEvent.click(enOption!);
-
     await waitFor(() => {
       expect(document.cookie).toContain('locale=en');
     });
   });
 
   it('closes dropdown on Escape key press', async () => {
-    render(<LanguageSelector />);
-
-    const button = screen.getByLabelText('Select language');
-
-    // Open dropdown
+    renderSelector();
+    const button = screen.getByLabelText('Chọn ngôn ngữ');
     fireEvent.click(button);
     await waitFor(() => {
       expect(screen.getByRole('listbox')).toBeInTheDocument();
     });
-
-    // Press Escape
     fireEvent.keyDown(button, { key: 'Escape' });
-
     await waitFor(() => {
       expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     });
   });
 
   it('has correct aria attributes', () => {
-    render(<LanguageSelector />);
-
-    const button = screen.getByLabelText('Select language');
+    renderSelector();
+    const button = screen.getByLabelText('Chọn ngôn ngữ');
     expect(button).toHaveAttribute('aria-expanded', 'false');
     expect(button).toHaveAttribute('aria-haspopup', 'listbox');
-
-    // Open dropdown
     fireEvent.click(button);
-
     expect(button).toHaveAttribute('aria-expanded', 'true');
+  });
+
+  it('selected item has golden highlight background', async () => {
+    renderSelector();
+    const button = screen.getByLabelText('Chọn ngôn ngữ');
+    fireEvent.click(button);
+    await waitFor(() => {
+      const options = screen.getAllByRole('option');
+      const selectedOption = options.find(
+        (opt) => opt.getAttribute('aria-selected') === 'true',
+      );
+      expect(selectedOption).toBeDefined();
+      expect(selectedOption?.className).toContain('bg-[rgba(255,234,158,0.2)]');
+    });
+  });
+
+  it('supports Arrow key navigation between options', async () => {
+    renderSelector();
+    const button = screen.getByLabelText('Chọn ngôn ngữ');
+    fireEvent.click(button);
+    await waitFor(() => {
+      expect(screen.getByRole('listbox')).toBeInTheDocument();
+    });
+    const listbox = screen.getByRole('listbox');
+    const options = screen.getAllByRole('option');
+
+    // ArrowDown should focus the next option
+    fireEvent.keyDown(listbox, { key: 'ArrowDown' });
+    expect(document.activeElement).toBe(options[1]);
+
+    // ArrowUp should go back
+    fireEvent.keyDown(listbox, { key: 'ArrowUp' });
+    expect(document.activeElement).toBe(options[0]);
+  });
+
+  it('selects focused option on Enter key', async () => {
+    renderSelector();
+    const button = screen.getByLabelText('Chọn ngôn ngữ');
+    fireEvent.click(button);
+    await waitFor(() => {
+      expect(screen.getByRole('listbox')).toBeInTheDocument();
+    });
+    const listbox = screen.getByRole('listbox');
+
+    // Move to EN option (index 1)
+    fireEvent.keyDown(listbox, { key: 'ArrowDown' });
+    // Press Enter to select
+    fireEvent.keyDown(listbox, { key: 'Enter' });
+
+    await waitFor(() => {
+      expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+      expect(screen.getByText('EN')).toBeInTheDocument();
+    });
   });
 });

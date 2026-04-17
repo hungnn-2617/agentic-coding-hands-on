@@ -7,11 +7,12 @@ import { ProfileDropdown } from '@/components/ui/profile-dropdown';
 
 interface MainHeaderProps {
   userEmail?: string;
+  avatarUrl?: string;
   isAdmin?: boolean;
   unreadCount?: number;
 }
 
-export function MainHeader({ userEmail, isAdmin = false, unreadCount = 0 }: MainHeaderProps) {
+export function MainHeader({ userEmail, avatarUrl, isAdmin = false, unreadCount = 0 }: MainHeaderProps) {
   return (
     <header
       className="sticky top-0 z-50 w-full h-20 px-4 sm:px-12 lg:px-36 py-3 flex items-center justify-between"
@@ -35,7 +36,7 @@ export function MainHeader({ userEmail, isAdmin = false, unreadCount = 0 }: Main
       <div className="flex items-center gap-4">
         <LanguageSelector />
         <NotificationBell unreadCount={unreadCount} />
-        <ProfileDropdown userEmail={userEmail} isAdmin={isAdmin} />
+        <ProfileDropdown userEmail={userEmail} avatarUrl={avatarUrl} isAdmin={isAdmin} />
       </div>
     </header>
   );

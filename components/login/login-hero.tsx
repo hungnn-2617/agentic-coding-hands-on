@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import type { ReactNode } from 'react';
+import { useLanguage } from '@/hooks/use-language';
 
 interface LoginHeroProps {
   children?: ReactNode;
@@ -10,6 +13,7 @@ interface LoginHeroProps {
  * hero text, and slot for login button.
  */
 export function LoginHero({ children }: LoginHeroProps) {
+  const { t } = useLanguage();
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-[#00101A]">
       {/* Key Visual Background */}
@@ -62,10 +66,10 @@ export function LoginHero({ children }: LoginHeroProps) {
             {/* Hero Text */}
             <div className="flex flex-col gap-0">
               <p className="font-bold text-base leading-8 sm:text-lg sm:leading-9 lg:text-xl lg:leading-10 tracking-[0.5px] text-white whitespace-nowrap">
-                Bắt đầu hành trình của bạn cùng SAA 2025.
+                {t('login.hero.line1')}
               </p>
               <p className="font-bold text-base leading-8 sm:text-lg sm:leading-9 lg:text-xl lg:leading-10 tracking-[0.5px] text-white">
-                Đăng nhập để khám phá!
+                {t('login.hero.line2')}
               </p>
             </div>
 
