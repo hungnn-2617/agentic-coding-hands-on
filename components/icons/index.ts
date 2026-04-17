@@ -9,3 +9,6 @@ export { HamburgerIcon } from './hamburger-icon';
 export { PenIcon } from './pen-icon';
 export { SaaSmallIcon } from './saa-small-icon';
 export { ChevronRightIcon } from './chevron-right-icon';
+export { AwardBadgeIcon } from './award-badge-icon';
+export { DiamondIcon } from './diamond-icon';
+export { TargetIcon } from './target-icon';

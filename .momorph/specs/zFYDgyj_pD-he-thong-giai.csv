@@ -1,0 +1,227 @@
+No,itemId,itemName,nameJP,nameTrans,itemType,itemSubtype,buttonType,dataType,required,format,minLength,maxLength,defaultValue,validationNote,description,userAction,transitionNote,databaseTable,databaseColumn,databaseNote,qa
+"3","313:8437","3_Keyvisual","キービジュアル","Banner chính (Keyvisual)","others","hero_banner","","","false","","","","","","Banner chính hiển thị artwork và tiêu đề chiến dịch trên trang Hệ thống giải thưởng.
+
+Hiển thị:
+  - Ảnh nền: artwork trang trí toàn chiều rộng (cover; crop trung tâm)
+  - Tiêu đề: 'ROOT FURTHER' (font lớn; nổi bật)
+  - Phụ đề: 'Sun* Annual Award 2025'
+  - Logo và icon trang trí ở góc trên
+
+Chức năng:
+- Trang trí; không có hành vi click
+- Responsive: scale để cover chiều rộng và crop trung tâm
+- Accessibility: alt text 'Keyvisual Sun* Annual Award 2025'","","","","","",""
+"A","313:8453","A_Title hệ thống giải thưởng","賞制度タイトル","Tiêu đề hệ thống giải thưởng SAA2025","label","","","","false","","","","","","Tiêu đề phần giới thiệu hệ thống giải thưởng SAA 2025.
+
+Hiển thị:
+  - Dòng phụ: 'Sun* annual awards 2025' (text nhỏ; nhạt; phía trên)
+  - Tiêu đề chính: 'Hệ thống giải thưởng SAA 2025' (text lớn; nổi bật)
+
+Chức năng:
+- Hiển thị tĩnh; không có tương tác","","","","","",""
+"B","313:8458","B_Hệ thống giải thưởng","賞制度セクション","Hệ thống giải thưởng SAA2025","others","info_block","","","false","","","","","","Mục liệt kê toàn bộ hạng mục giải SAA 2025; bao gồm bảng điều hướng bên trái và các thẻ thông tin bên phải.
+
+Hiển thị:
+  - Bảng điều hướng (trái): danh sách các mục giải ('Top Talent'; 'Top Project'; 'Top Project Leader'; 'Best Manager'; 'Signature 2025 - Creator'; 'MVP')
+  - Thẻ giải (phải): mỗi thẻ gồm ảnh/biểu tượng; tiêu đề; mô tả; 'Số lượng giải thưởng'; 'Giá trị giải thưởng'
+
+Chức năng:
+- Click mục bên trái: cuộn tới thẻ giải tương ứng bên phải
+- Trạng thái: hiển thị thông tin tĩnh cho các thẻ giải; có tương tác cho menu điều hướng","","","","","",""
+"C","313:8459","C_Menu list","メニューリスト","Danh mục giải thưởng (menu bên trái)","others","navigation","","","false","","","","","","Cột điều hướng bên trái; liệt kê các hạng mục giải thưởng.
+
+Hiển thị:
+  - Danh sách: 6 mục văn bản dọc ('Top Talent'; 'Top Project'; 'Top Project Leader'; 'Best Manager'; 'Signature 2025 - Creator'; 'MVP')
+  - Indicator: mục đang active được đánh dấu bằng underline
+  - Vị trí: cố định bên trái khu vực nội dung
+
+Chức năng:
+- Click mục: cuộn nội dung phía bên phải tới thẻ giải tương ứng và đặt trạng thái active cho mục đó
+- Hover: highlight mục đang trỏ
+- Mục mặc định active: 'Top Talent' (mục đầu tiên)","","","","","","- Khi cuộn nội dung bên phải; mục active bên trái có tự động cập nhật theo vị trí cuộn không?"
+"C.1","313:8460","C.1_Top talent","トップタレント（ナビ項目）","Mục 'Top Talent'","others","navigation_item","","","false","","","","","","Mục điều hướng 'Top Talent' trong cột danh mục bên trái.
+
+Hiển thị:
+  - Text: 'Top Talent'
+  - Trạng thái active: có underline
+  - Trạng thái bình thường: màu nhạt
+
+Chức năng:
+- Click: cuộn tới phần 'Top Talent' (D.1) và đặt trạng thái active
+- Hover: highlight mục","on_click","Click vào mục này sẽ cuộn nội dung bên phải tới phần thông tin giải 'Top Talent' và đặt trạng thái active cho mục.","","","",""
+"C.2","313:8461","C.2_Top project","トッププロジェクト（ナビ項目）","Mục 'Top Project' (danh mục điều hướng)","others","navigation_item","","","false","","","","","","Mục điều hướng 'Top Project' trong cột danh mục bên trái.
+
+Hiển thị:
+  - Text: 'Top Project'
+  - Trạng thái active: có underline
+  - Trạng thái bình thường: màu nhạt
+
+Chức năng:
+- Click: cuộn tới phần 'Top Project' (D.2) và đặt trạng thái active
+- Hover: highlight mục","on_click","Click vào mục này sẽ cuộn nội dung bên phải tới phần thông tin giải 'Top Project' và đặt trạng thái active cho mục.","","","",""
+"C.3","313:8462","C.3_Top Project leader","トッププロジェクトリーダー（ナビ項目）","Người Dẫn Dự Án Xuất Sắc","others","navigation_item","","","false","","","","","","Mục điều hướng 'Top Project Leader' trong cột danh mục bên trái.
+
+Hiển thị:
+  - Text: 'Top Project Leader'
+  - Trạng thái active: có underline
+  - Trạng thái bình thường: màu nhạt
+
+Chức năng:
+- Click: cuộn tới phần 'Top Project Leader' (D.3) và đặt trạng thái active
+- Hover: highlight mục","on_click","Click vào mục này sẽ cuộn nội dung bên phải tới phần thông tin giải 'Top Project Leader' và đặt trạng thái active cho mục.","","","",""
+"C.4","313:8463","C.4_Best manager","ベストマネージャー（ナビ項目）","Quản lý xuất sắc","others","navigation_item","","","false","","","","","","Mục điều hướng 'Best Manager' trong cột danh mục bên trái.
+
+Hiển thị:
+  - Text: 'Best Manager'
+  - Trạng thái active: có underline
+  - Trạng thái bình thường: màu nhạt
+
+Chức năng:
+- Click: cuộn tới phần 'Best Manager' (D.4) và đặt trạng thái active
+- Hover: highlight mục","on_click","Click vào mục này sẽ cuộn nội dung bên phải tới phần thông tin giải 'Best Manager' và đặt trạng thái active cho mục.","","","",""
+"C.5","313:8464","C.5_Signature 2025","シグネチャー2025（ナビ項目）","Giải Signature 2025 - Creator","others","navigation_item","","","false","","","","","","Mục điều hướng 'Signature 2025 - Creator' trong cột danh mục bên trái.
+
+Hiển thị:
+  - Text: 'Signature 2025 - Creator'
+  - Trạng thái active: có underline
+  - Trạng thái bình thường: màu nhạt
+
+Chức năng:
+- Click: cuộn tới phần 'Signature 2025 - Creator' (D.5) và đặt trạng thái active
+- Hover: highlight mục","on_click","Click vào mục này sẽ cuộn nội dung bên phải tới phần thông tin giải 'Signature 2025 - Creator' và đặt trạng thái active cho mục.","","","",""
+"C.6","313:8465","C.6_MVP","MVP（ナビ項目）","MVP (Người có giá trị nhất)","others","navigation_item","","","false","","","","","","Mục điều hướng 'MVP' trong cột danh mục bên trái.
+
+Hiển thị:
+  - Text: 'MVP'
+  - Trạng thái active: có underline
+  - Trạng thái bình thường: màu nhạt
+
+Chức năng:
+- Click: cuộn tới phần 'MVP' (thẻ giải MVP phía dưới) và đặt trạng thái active
+- Hover: highlight mục","on_click","Click vào mục này sẽ cuộn nội dung bên phải tới phần thông tin giải 'MVP' và đặt trạng thái active cho mục.","","","",""
+"D.1","313:8467","D.1_Top talent","トップタレント（情報ブロック）","Top Talent (Giải Nhân Tài)","others","info_block","","","false","","","","","","Thẻ thông tin giải thưởng 'Top Talent' trên trang Hệ thống giải thưởng SAA 2025.
+
+Hiển thị:
+  - Hình: khung ảnh/biểu tượng giải 'TOP TALENT' (bên trái thẻ)
+  - Tiêu đề: 'Top Talent'
+  - Mô tả: đoạn văn giải thích về tiêu chí; ý nghĩa và đối tượng của giải thưởng
+  - Số lượng giải thưởng: '10' - 'Đơn vị' (cá nhân lẫn tập thể)
+  - Giá trị giải thưởng: '7.000.000 VNĐ' - 'cho mỗi giải thưởng'
+
+Chức năng:
+- Chỉ hiển thị thông tin; không có hành vi click
+- Là mục đích đến khi click mục 'Top Talent' trong menu điều hướng bên trái","","","","","",""
+"D.2","313:8468","D.2_Top Project","トッププロジェクト（情報ブロック）","Top Project (Giải Dự Án Xuất Sắc)","others","info_block","","","false","","","","","","Thẻ thông tin giải thưởng 'Top Project' trên trang Hệ thống giải thưởng SAA 2025.
+
+Hiển thị:
+  - Hình: khung ảnh/biểu tượng giải 'TOP PROJECT' (bên trái thẻ)
+  - Tiêu đề: 'Top Project'
+  - Mô tả: đoạn văn giải thích về tiêu chí; ý nghĩa và phạm vi của giải thưởng dự án
+  - Số lượng giải thưởng: '02' - 'Tập thể'
+  - Giá trị giải thưởng: '15.000.000 VNĐ' - 'cho mỗi giải thưởng'
+
+Chức năng:
+- Chỉ hiển thị thông tin; không có hành vi click
+- Là mục đích đến khi click mục 'Top Project' trong menu điều hướng bên trái","","","","","",""
+"D.3","313:8469","D.3_Top Project Leader","トッププロジェクトリーダー（情報ブロック）","Giải thưởng Top Project Leader","others","info_block","","","false","","","","","","Thẻ thông tin giải thưởng 'Top Project Leader' trên trang Hệ thống giải thưởng SAA 2025.
+
+Hiển thị:
+  - Hình: khung ảnh/biểu tượng giải 'TOP PROJECT LEADER' (bên trái thẻ)
+  - Tiêu đề: 'Top Project Leader'
+  - Mô tả: đoạn văn giải thích về tiêu chí; ý nghĩa giải thưởng dành cho người dẫn dự án
+  - Số lượng giải thưởng: '03' - 'Cá nhân'
+  - Giá trị giải thưởng: '7.000.000 VNĐ' - 'cho mỗi giải thưởng'
+
+Chức năng:
+- Chỉ hiển thị thông tin; không có hành vi click
+- Là mục đích đến khi click mục 'Top Project Leader' trong menu điều hướng bên trái","","","","","",""
+"D.4","313:8470","D.4_Thông tin giải","ベストマネージャー（情報ブロック）","Thông tin giải 'Best Manager'","others","info_block","","","false","","","","","","Thẻ thông tin giải thưởng 'Best Manager' trên trang Hệ thống giải thưởng SAA 2025.
+
+Hiển thị:
+  - Hình: khung ảnh/biểu tượng giải 'BEST MANAGER' (bên trái thẻ)
+  - Tiêu đề: 'Best Manager'
+  - Mô tả: đoạn văn mô tả tiêu chí; ý nghĩa giải thưởng dành cho quản lý xuất sắc
+  - Số lượng giải thưởng: '01' - 'Cá nhân'
+  - Giá trị giải thưởng: '10.000.000 VNĐ'
+
+Chức năng:
+- Chỉ hiển thị thông tin; không có hành vi click
+- Là mục đích đến khi click mục 'Best Manager' trong menu điều hướng bên trái","","","","","",""
+"D.5","313:8471","D.5_Signature 2025","シグネチャー2025（情報ブロック）","Signature 2025 - Creator (Giải thưởng)","others","info_block","","","false","","","","","","Thẻ thông tin giải thưởng 'Signature 2025 - Creator' trên trang Hệ thống giải thưởng SAA 2025.
+
+Hiển thị:
+  - Hình: khung ảnh/biểu tượng giải 'SIGNATURE 2025 CREATOR' (bên trái thẻ)
+  - Tiêu đề: 'Signature 2025 - Creator'
+  - Mô tả: đoạn văn tóm tắt mục tiêu và ý nghĩa giải thưởng sáng tạo
+  - Số lượng giải thưởng: '01' - bao gồm cả 'Cá nhân' và 'Tập thể'
+  - Giá trị giải thưởng (cá nhân): '5.000.000 VNĐ' - 'cho giải cá nhân'
+  - Giá trị giải thưởng (tập thể): '8.000.000 VNĐ' - 'cho giải tập thể'
+
+Chức năng:
+- Chỉ hiển thị thông tin; không có hành vi click
+- Là mục đích đến khi click mục 'Signature 2025 - Creator' trong menu điều hướng bên trái
+- Đặc biệt: thẻ này có 2 mức giá trị giải thưởng (cá nhân và tập thể); khác với các thẻ khác chỉ có 1 mức","","","","","","- Giải 'Signature 2025 - Creator' có 2 giá trị (cá nhân: 5tr; tập thể: 8tr). Cần xác nhận logic hiển thị khi số lượng giải chỉ là '01' nhưng có cả cá nhân và tập thể."
+"D.6","313:8510","D.6_MVP","MVP","Giải MVP (Most Valuable Person)","others","info_block","","","false","","","","","","Thẻ hiển thị thông tin hạng mục giải thưởng 'MVP (Most Valuable Person)' trên trang hệ thống giải SAA 2025.
+
+Hiển thị:
+  - Hình minh hoạ: Graphic vuông biểu tượng giải thưởng MVP (bên trái)
+  - Tiêu đề: 'MVP (Most Valuable Person)'
+  - Mô tả: Đoạn văn giải thích mục đích giải thưởng - vinh danh gương sáng tiêu biểu đại diện cho toàn bộ tập thể
+  - Thông số: 'Số lượng giải thưởng:' '01' và 'Giá trị giải thưởng:' '15.000.000 VNĐ'
+
+Chức năng:
+- Chỉ hiển thị thông tin (read-only); không có tương tác","","","","","",""
+"D1","335:12023","D1_Sunkudos","Sun* Kudos","Sun* Kudos - Phong trào ghi nhận","others","info_block","","","false","","","","","","Khối quảng bá 'Sun* Kudos' với tiêu đề; mô tả ngắn và nút hành động; nằm ở cuối trang hệ thống giải.
+
+Hiển thị:
+  - Nhãn phụ: 'ĐIỂM MỚI CỦA SAA 2025'
+  - Label: 'Phong trào ghi nhận'
+  - Tiêu đề: 'Sun* Kudos'
+  - Mô tả: Đoạn tóm tắt hoạt động ghi nhận và cảm ơn đồng nghiệp
+  - Logo/ảnh: Hình minh hoạ 'KUDOS' bên phải
+  - Nút: 'Chi tiết' (kèm icon mũi tên)
+
+Chức năng:
+- Click nút 'Chi tiết': điều hướng tới trang chi tiết Sun* Kudos","on_click","Click nút 'Chi tiết': điều hướng tới trang chi tiết Sun* Kudos","","","",""
+"D.1.1","I313:8467;214:2525","D.1.1_Picture-Award","画像","Hình ảnh giải thưởng","others","image","","","false","","","","","","Hình ảnh biểu thị giải thưởng dùng trong thẻ giải thưởng (ví dụ: thẻ 'Top Talent').
+
+Hiển thị:
+  - Hình vuông (336x336px): Graphic/ảnh minh hoạ biểu tượng giải thưởng với hiệu ứng vòng sáng
+  - Vị trí: Phần trên hoặc bên trái của thẻ giải thưởng
+
+Chức năng:
+- Chỉ hiển thị ảnh (read-only); không có tương tác","","","","","",""
+"D.1.2","I313:8467;214:2526","D.1.2_Content","コンテンツ","Khối nội dung 'Top Talent'","others","info_block","","","false","","","","","","Khối thông tin giải thưởng 'Top Talent' trên trang hệ thống giải SAA 2025.
+
+Hiển thị:
+  - Tiêu đề: 'Top Talent'
+  - Mô tả: Đoạn văn giải thích mục đích giải thưởng - vinh danh top cá nhân xuất sắc trên mọi phương diện
+  - Thông số:
+    + 'Số lượng giải thưởng:' '10' 'Đơn vị'
+    + 'Giá trị giải thưởng:' '7.000.000 VNĐ' 'cho mỗi giải thưởng'
+
+Chức năng:
+- Chỉ hiển thị thông tin (read-only); không có tương tác","","","","","",""
+"D2","I335:12023;313:8419","D2_Content","コンテンツ","Khối nội dung 'Sun* Kudos'","others","info_block","","","false","","","","","","Khối thông tin 'Sun* Kudos' giới thiệu chương trình ghi nhận nhân sự trên trang hệ thống giải.
+
+Hiển thị:
+  - Nhãn phụ: 'ĐIỂM MỚI CỦA SAA 2025'
+  - Label: 'Phong trào ghi nhận'
+  - Tiêu đề: 'Sun* Kudos'
+  - Mô tả: Đoạn tóm tắt hoạt động ghi nhận và cảm ơn đồng nghiệp
+  - Logo/ảnh: Hình minh hoạ 'KUDOS' bên phải
+  - Nút: 'Chi tiết' (CTA; kèm icon mũi tên)
+
+Chức năng:
+- Click nút 'Chi tiết': điều hướng tới trang chi tiết Sun* Kudos
+- Hover nút: hiệu ứng nổi nhẹ","on_click","Click nút 'Chi tiết': điều hướng tới trang chi tiết Sun* Kudos","","","",""
+"D2.1","I335:12023;313:8426","D2.1_Button-IC","ボタン","Nút 'Chi tiết'","button","","text_link","","false","","","","","","Nút 'Chi tiết' nằm trong khối Sun* Kudos; cho phép người dùng mở trang chi tiết.
+
+Hiển thị:
+  - Text: 'Chi tiết'
+  - Icon: mũi tên phải (arrow-right)
+  - Kiểu: text link với icon
+
+Chức năng:
+- Click: điều hướng tới trang chi tiết Sun* Kudos
+- Hover: hiệu ứng nổi nhẹ","on_click","Click: điều hướng tới trang chi tiết Sun* Kudos","","","",""

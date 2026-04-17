@@ -2,11 +2,13 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/hooks/use-language';
 import type { TranslationKey } from '@/lib/i18n/types';
 
 export function MainFooter() {
   const { t } = useLanguage();
+  const pathname = usePathname();
 
   const footerLinks: { href: string; labelKey: TranslationKey }[] = [
     { href: '/', labelKey: 'footer.about' },
@@ -31,20 +33,29 @@ export function MainFooter() {
           />
         </Link>
         <nav className="flex flex-wrap items-center justify-center gap-4 lg:gap-12" aria-label="Footer navigation">
-          {footerLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="
-                px-4 py-2 rounded text-base font-bold leading-6 tracking-[0.15px]
-                text-white transition-colors duration-150
-                hover:bg-white/10
-                focus:outline-2 focus:outline-[#FFEA9E] focus:outline-offset-2
-              "
-            >
-              {t(link.labelKey)}
-            </Link>
-          ))}
+          {footerLinks.map((link) => {
+            const isActive = pathname === link.href;
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`
+                  px-4 py-2 rounded text-base font-bold leading-6 tracking-[0.15px]
+                  transition-colors duration-150
+                  focus:outline-2 focus:outline-[#FFEA9E] focus:outline-offset-2
+                  ${
+                    isActive
+                      ? 'text-[#FFEA9E] bg-[rgba(255,234,158,0.1)]'
+                      : 'text-white hover:bg-white/10'
+                  }
+                `}
+                style={isActive ? { textShadow: '0 4px 4px rgba(0,0,0,0.25), 0 0 6px #FAE287' } : undefined}
+              >
+                {t(link.labelKey)}
+              </Link>
+            );
+          })}
         </nav>
       </div>
 

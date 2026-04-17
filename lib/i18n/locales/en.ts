@@ -76,4 +76,18 @@ export const en: Translations = {
   'footer.awards': 'Award Information',
   'footer.kudos': 'Sun* Kudos',
   'footer.standards': 'Community Standards',
+
+  // Prize System Page
+  'prizePage.subtitle': 'Sun* Annual Awards 2025',
+  'prizePage.title': 'SAA 2025 Award System',
+  'prizePage.sidebar.ariaLabel': 'Award Categories',
+  'prizePage.prizeCount.label': 'Number of prizes:',
+  'prizePage.prizeValue.label': 'Prize value:',
+  'prizePage.orDivider': 'Or',
+  'prizePage.kudos.badge': 'NEW IN SAA 2025',
+  'prizePage.kudos.label': 'Recognition Movement',
+  'prizePage.kudos.title': 'Sun* Kudos',
+  'prizePage.kudos.description':
+    '[EN_PENDING] A recognition and appreciation initiative for colleagues — happening for the first time for all Sunners. The initiative will launch in November 2025, encouraging Sun* people to share words of recognition and gratitude for colleagues through the system announced by the organizing committee.',
+  'prizePage.kudos.cta': 'Details',
 };

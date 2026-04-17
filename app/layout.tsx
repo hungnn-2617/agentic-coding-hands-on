@@ -20,6 +20,9 @@ const montserratAlternates = Montserrat_Alternates({
 export const metadata: Metadata = {
   title: 'SAA 2025 | Sun Annual Awards',
   description: 'Sun Annual Awards 2025 - ROOT FURTHER',
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
