@@ -1,3 +1,9 @@
 export { Header } from './header';
 export { Footer } from './footer';
 export { LanguageSelector } from './language-selector';
+export { MainHeader } from './main-header';
+export { MainFooter } from './main-footer';
+export { NavLink } from './nav-link';
+export { NavLinks } from './nav-links';
+export { NotificationBell } from './notification-bell';
+export { ProfileDropdown } from './profile-dropdown';

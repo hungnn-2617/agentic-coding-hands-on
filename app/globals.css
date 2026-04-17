@@ -3,29 +3,53 @@
 :root {
   /* SAA 2025 Theme Colors */
   --color-bg-page: #00101a;
-  --color-bg-header: #0b0f12;
+  --color-bg-header: rgba(16, 20, 23, 0.80);
   --color-bg-button-primary: #ffea9e;
   --color-text-primary: #ffffff;
+  --color-text-gold: #ffea9e;
   --color-text-button: #00101a;
   --color-border-footer: #2e3940;
+
+  /* Extended design tokens */
+  --color-divider: #2e3940;
+  --color-border: #998c5f;
+  --color-notification-badge: #d4271d;
+  --color-kudos-card-bg: #0f0f0f;
+  --color-kudos-decorative: #dbd1c1;
+  --color-glow: #fae287;
+  --color-secondary-btn-bg: rgba(255, 234, 158, 0.10);
 
   /* Gradient colors */
   --color-gradient-left: #00101a;
   --color-gradient-bottom: #00101a;
+
+  /* Shadows */
+  --shadow-golden-glow: 0 4px 4px 0 rgba(0, 0, 0, 0.25), 0 0 6px 0 #fae287;
+  --text-shadow-golden: 0 4px 4px rgba(0, 0, 0, 0.25), 0 0 6px #fae287;
 }
 
 @theme inline {
   --color-background: var(--color-bg-page);
   --color-foreground: var(--color-text-primary);
   --font-montserrat: var(--font-montserrat);
+  --font-digital-numbers: var(--font-digital-numbers);
+  --font-montserrat-alternates: var(--font-montserrat-alternates);
 
   /* Custom colors */
   --color-saa-bg-page: var(--color-bg-page);
   --color-saa-bg-header: var(--color-bg-header);
   --color-saa-bg-button-primary: var(--color-bg-button-primary);
   --color-saa-text-primary: var(--color-text-primary);
+  --color-saa-text-gold: var(--color-text-gold);
   --color-saa-text-button: var(--color-text-button);
   --color-saa-border-footer: var(--color-border-footer);
+  --color-saa-divider: var(--color-divider);
+  --color-saa-border: var(--color-border);
+  --color-saa-notification-badge: var(--color-notification-badge);
+  --color-saa-kudos-card-bg: var(--color-kudos-card-bg);
+  --color-saa-kudos-decorative: var(--color-kudos-decorative);
+  --color-saa-glow: var(--color-glow);
+  --color-saa-secondary-btn-bg: var(--color-secondary-btn-bg);
 }
 
 body {
