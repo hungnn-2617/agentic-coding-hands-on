@@ -31,7 +31,11 @@
       "Bash(npx vitest *)",
       "Bash(npx tsc *)",
       "Bash(ls -la /Users/nguyen.ngoc.hungb/Documents/SunProject/ssa-2025-ex/ssa-2025-ex/tailwind.config.*)",
-      "Bash(ls *)"
+      "Bash(ls *)",
+      "mcp__momorph__get_project_overview",
+      "Bash(head -30 /Users/nguyen.ngoc.hungb/Documents/SunProject/ssa-2025-ex/ssa-2025-ex/components/ui/*.tsx)",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_type"
     ]
   },
   "enableAllProjectMcpServers": true,

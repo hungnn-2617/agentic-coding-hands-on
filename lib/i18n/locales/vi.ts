@@ -81,4 +81,18 @@ export const vi: Translations = {
   'footer.awards': 'Thông tin giải thưởng',
   'footer.kudos': 'Sun* Kudos',
   'footer.standards': 'Tiêu chuẩn chung',
+
+  // Prize System Page
+  'prizePage.subtitle': 'Sun* Annual Awards 2025',
+  'prizePage.title': 'Hệ thống giải thưởng SAA 2025',
+  'prizePage.sidebar.ariaLabel': 'Danh mục giải thưởng',
+  'prizePage.prizeCount.label': 'Số lượng giải thưởng:',
+  'prizePage.prizeValue.label': 'Giá trị giải thưởng:',
+  'prizePage.orDivider': 'Hoặc',
+  'prizePage.kudos.badge': 'ĐIỂM MỚI CỦA SAA 2025',
+  'prizePage.kudos.label': 'Phong trào ghi nhận',
+  'prizePage.kudos.title': 'Sun* Kudos',
+  'prizePage.kudos.description':
+    'Hoạt động ghi nhận và cảm ơn đồng nghiệp - lần đầu tiên được diễn ra dành cho tất cả Sunner. Hoạt động sẽ được triển khai vào tháng 11/2025, khuyến khích người Sun* chia sẻ những lời ghi nhận, cảm ơn đồng nghiệp trên hệ thống do BTC công bố. Đây sẽ là chất liệu để Hội đồng Heads tham khảo trong quá trình lựa chọn người đạt giải.',
+  'prizePage.kudos.cta': 'Chi tiết',
 };

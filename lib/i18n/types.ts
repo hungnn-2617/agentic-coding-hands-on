@@ -63,7 +63,19 @@ export type TranslationKey =
   | 'footer.about'
   | 'footer.awards'
   | 'footer.kudos'
-  | 'footer.standards';
+  | 'footer.standards'
+  // Prize System Page
+  | 'prizePage.subtitle'
+  | 'prizePage.title'
+  | 'prizePage.sidebar.ariaLabel'
+  | 'prizePage.prizeCount.label'
+  | 'prizePage.prizeValue.label'
+  | 'prizePage.orDivider'
+  | 'prizePage.kudos.badge'
+  | 'prizePage.kudos.label'
+  | 'prizePage.kudos.title'
+  | 'prizePage.kudos.description'
+  | 'prizePage.kudos.cta';
 
 export type Translations = Record<TranslationKey, string>;
 
