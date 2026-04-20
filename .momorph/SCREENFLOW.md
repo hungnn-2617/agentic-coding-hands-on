@@ -169,6 +169,21 @@
 | User avatar hover | Hover | Hover Avatar info | Bf5XiTE7AO |
 | User avatar click | Click | Profile nguoi khac | w4WUvsJ9KI |
 
+### Floating Action Button - Collapsed (_hphd32jN2)
+
+| Element | Action | Target Screen | Screen ID |
+|---------|--------|---------------|-----------|
+| Widget Button (entire FAB) | Click | FAB Expanded State | Sv7DFwBw1h |
+
+### Floating Action Button - Expanded (Sv7DFwBw1h)
+
+| Element | Action | Target Screen | Screen ID |
+|---------|--------|---------------|-----------|
+| A: Thể lệ Button | Click | Thể lệ UPDATE | 3204:6051 |
+| B: Viết KUDOS Button | Click | Viết Kudo | 520:11602 |
+| C: Close (X) Button | Click | FAB Collapsed State | _hphd32jN2 |
+| Outside click | Click | FAB Collapsed State | _hphd32jN2 |
+
 ### Viet Kudo (ihQ26W78P2)
 
 | Element | Action | Target Screen | Screen ID |
@@ -740,6 +755,7 @@ flowchart TD
 | 2026-04-06 | iOS screens added | iOS variants for mobile | Mobile-specific designs |
 | 2026-04-17 | He thong giai detailed | He thong giai component hierarchy | Full component tree, design items, interactions documented |
 | 2026-04-20 | Viet Kudo detailed | Viet Kudo component hierarchy | Full component tree, design items, validation rules, interactions, related screens documented |
+| 2026-04-20 | FAB detailed | FAB Collapsed (_hphd32jN2) + FAB Expanded (Sv7DFwBw1h) | Full specs: collapsed pill state, expanded action menu with Thể lệ/Viết KUDOS/Close buttons, navigation flows added |
 
 ---
 
