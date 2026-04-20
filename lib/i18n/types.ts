@@ -31,6 +31,13 @@ export type TranslationKey =
   | 'countdown.hours'
   | 'countdown.minutes'
   | 'countdown.ariaLabel'
+  // Prelaunch
+  | 'prelaunch.title'
+  | 'prelaunch.comingSoon'
+  | 'prelaunch.days'
+  | 'prelaunch.hours'
+  | 'prelaunch.minutes'
+  | 'prelaunch.ariaLabel'
   // Event
   | 'event.time'
   | 'event.venue'

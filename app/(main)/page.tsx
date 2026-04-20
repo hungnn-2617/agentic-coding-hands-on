@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
+import { fetchPrelaunchData } from '@/lib/services/prelaunch';
 import { HeroSection } from '@/components/homepage/hero-section';
 import { AboutContent } from '@/components/homepage/about-content';
 import { AwardsSection } from '@/components/homepage/awards-section';
@@ -9,7 +11,12 @@ export const metadata: Metadata = {
   description: 'Sun* Annual Awards 2025 - ROOT FURTHER',
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const prelaunchData = await fetchPrelaunchData();
+  if (prelaunchData.event_status === 'prelaunch') {
+    redirect('/countdown');
+  }
+
   return (
     <div className="flex flex-col">
       <HeroSection />

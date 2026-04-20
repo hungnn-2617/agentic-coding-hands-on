@@ -37,6 +37,14 @@ export const vi: Translations = {
   'countdown.minutes': 'Phút',
   'countdown.ariaLabel': '{days} ngày, {hours} giờ, {minutes} phút cho đến sự kiện',
 
+  // Prelaunch
+  'prelaunch.title': 'Sự kiện sẽ bắt đầu sau',
+  'prelaunch.comingSoon': 'Sắp diễn ra',
+  'prelaunch.days': 'DAYS',
+  'prelaunch.hours': 'HOURS',
+  'prelaunch.minutes': 'MINUTES',
+  'prelaunch.ariaLabel': '{days} ngày, {hours} giờ, {minutes} phút cho đến sự kiện',
+
   // Event
   'event.time': 'Thời gian:',
   'event.venue': 'Địa điểm:',

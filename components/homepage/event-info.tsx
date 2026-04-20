@@ -1,6 +1,7 @@
 'use client';
 
 import { useLanguage } from '@/hooks/use-language';
+import { EVENT_START_DATE } from '@/lib/constants';
 
 function formatDate(isoDate: string): string {
   const date = new Date(isoDate);
@@ -13,8 +14,7 @@ function formatDate(isoDate: string): string {
 
 export function EventInfo() {
   const { t } = useLanguage();
-  const eventDate = process.env.NEXT_PUBLIC_EVENT_START_DATE ?? '';
-  const formattedDate = formatDate(eventDate);
+  const formattedDate = formatDate(EVENT_START_DATE);
 
   return (
     <div className="flex flex-col gap-2 max-w-[637px]">

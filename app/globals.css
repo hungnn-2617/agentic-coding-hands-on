@@ -1,6 +1,16 @@
 @import 'tailwindcss';
 
+/* Digital Numbers LED font — self-hosted, gracefully degrades to Courier New if file not found */
+@font-face {
+  font-family: 'Digital Numbers';
+  src: url('/fonts/digital-numbers/DigitalNumbers-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
+  --font-digital-numbers: 'Digital Numbers', 'Courier New', monospace;
   /* SAA 2025 Theme Colors */
   --color-bg-page: #00101a;
   --color-bg-header: rgba(16, 20, 23, 0.80);
@@ -32,7 +42,7 @@
   --color-background: var(--color-bg-page);
   --color-foreground: var(--color-text-primary);
   --font-montserrat: var(--font-montserrat);
-  --font-digital-numbers: var(--font-digital-numbers);
+  --font-digital-numbers: 'Digital Numbers', 'Courier New', monospace;
   --font-montserrat-alternates: var(--font-montserrat-alternates);
 
   /* Custom colors */
@@ -56,4 +66,23 @@ body {
   background: var(--color-bg-page);
   color: var(--color-text-primary);
   font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+}
+
+/* Glassmorphism fallback for browsers without backdrop-filter */
+@supports not (backdrop-filter: blur(1px)) {
+  .prelaunch-digit-card {
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Prelaunch countdown digit flip animation */
+@keyframes digitFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

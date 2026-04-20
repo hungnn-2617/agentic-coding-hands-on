@@ -37,6 +37,14 @@ export const en: Translations = {
   'countdown.minutes': 'Minutes',
   'countdown.ariaLabel': '{days} days, {hours} hours, {minutes} minutes until event',
 
+  // Prelaunch
+  'prelaunch.title': 'The event will start in',
+  'prelaunch.comingSoon': 'Coming soon',
+  'prelaunch.days': 'DAYS',
+  'prelaunch.hours': 'HOURS',
+  'prelaunch.minutes': 'MINUTES',
+  'prelaunch.ariaLabel': '{days} days, {hours} hours, {minutes} minutes until event',
+
   // Event
   'event.time': 'Time:',
   'event.venue': 'Venue:',
