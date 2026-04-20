@@ -1,5 +1,6 @@
 import { MainHeader } from '@/components/ui/main-header';
 import { MainFooter } from '@/components/ui/main-footer';
+import { MainLayoutClient } from '@/components/ui/main-layout-client';
 import { createClient } from '@/lib/supabase/server';
 
 export default async function MainLayout({
@@ -11,12 +12,14 @@ export default async function MainLayout({
 
   let userEmail: string | undefined;
   let avatarUrl: string | undefined;
+  let userId: string | undefined;
   let isAdmin = false;
 
   if (supabase) {
     const { data: { user } } = await supabase.auth.getUser();
     userEmail = user?.email ?? undefined;
     avatarUrl = (user?.user_metadata?.avatar_url as string) ?? undefined;
+    userId = user?.id ?? undefined;
     // TODO: Check admin role from profiles table when available
     isAdmin = false;
   }
@@ -30,9 +33,11 @@ export default async function MainLayout({
         Skip to main content
       </a>
       <MainHeader userEmail={userEmail} avatarUrl={avatarUrl} isAdmin={isAdmin} unreadCount={0} />
-      <main id="main-content" className="flex-1">
-        {children}
-      </main>
+      <MainLayoutClient userId={userId ?? ''}>
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
+      </MainLayoutClient>
       <MainFooter />
     </>
   );
