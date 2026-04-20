@@ -75,6 +75,35 @@ body {
   }
 }
 
+/* TipTap editor base styles */
+.ProseMirror {
+  outline: none;
+  min-height: 120px;
+  color: #00101a;
+}
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: #666;
+  float: left;
+  height: 0;
+  pointer-events: none;
+  font-weight: 700;
+}
+.ProseMirror blockquote {
+  border-left: 3px solid #998c5f;
+  padding-left: 1rem;
+  margin-left: 0;
+}
+.ProseMirror a {
+  color: #E46060;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.ProseMirror ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+}
+
 /* Prelaunch countdown digit flip animation */
 @keyframes digitFade {
   0% {

@@ -52,6 +52,7 @@ export interface Database {
           updated_at?: string;
           deleted_at?: string | null;
         };
+        Relationships: [];
       };
       departments: {
         Row: {
@@ -69,6 +70,70 @@ export interface Database {
           name?: string;
           created_at?: string;
         };
+        Relationships: [];
+      };
+      kudos: {
+        Row: {
+          id: string;
+          sender_id: string;
+          recipient_id: string;
+          title: string;
+          content: string;
+          hashtags: string[];
+          images: string[];
+          is_anonymous: boolean;
+          anonymous_name: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          sender_id: string;
+          recipient_id: string;
+          title: string;
+          content: string;
+          hashtags?: string[];
+          images?: string[];
+          is_anonymous?: boolean;
+          anonymous_name?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          sender_id?: string;
+          recipient_id?: string;
+          title?: string;
+          content?: string;
+          hashtags?: string[];
+          images?: string[];
+          is_anonymous?: boolean;
+          anonymous_name?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      hashtags: {
+        Row: {
+          id: number;
+          name: string;
+          created_by: string | null;
+          created_at: string;
+        };
+        Insert: {
+          id?: number;
+          name: string;
+          created_by?: string | null;
+          created_at?: string;
+        };
+        Update: {
+          id?: number;
+          name?: string;
+          created_by?: string | null;
+          created_at?: string;
+        };
+        Relationships: [];
       };
     };
     Views: Record<string, never>;

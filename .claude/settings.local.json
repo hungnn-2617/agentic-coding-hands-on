@@ -44,7 +44,9 @@
       "WebFetch(domain:cdn.jsdelivr.net)",
       "Bash(npm run *)",
       "Bash(kill %1)",
-      "Bash(pkill -f \"next dev\")"
+      "Bash(pkill -f \"next dev\")",
+      "mcp__momorph__get_related_design_items",
+      "Bash(git *)"
     ]
   },
   "enableAllProjectMcpServers": true,

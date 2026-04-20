@@ -5,7 +5,7 @@
 - **Figma File Key**: 9ypp4enmFmdK3YAFJLIu6C
 - **Figma URL**: https://www.figma.com/design/9ypp4enmFmdK3YAFJLIu6C
 - **Created**: 2026-01-30
-- **Last Updated**: 2026-04-17
+- **Last Updated**: 2026-04-20
 
 ---
 
@@ -33,7 +33,7 @@
 | Sun* Kudos - Live board | MaZUn5xHXZ | design | Sun* Kudos live board with kudos feed |
 | Profile ban than | 3FoIx6ALVb | design | User's own profile page |
 | Profile nguoi khac | w4WUvsJ9KI | design | Other user's profile page |
-| Viet Kudo | ihQ26W78P2 | design | Write/send a Kudo message |
+| Viet Kudo | ihQ26W78P2 | design | Modal dialog for writing/sending kudos with recipient search, rich text editor, hashtags, image upload, and anonymous option |
 | Tieu chuan cong dong | Dpn7C89--r | design | Community standards page |
 | The le (Rules) | b1Filzi9i6 | design | SAA 2025 rules and regulations page |
 | Tat ca thong bao | 6-1LRz3vqr | design | All notifications page |
@@ -168,6 +168,21 @@
 | Kudo card | Click | View Kudo | onDIohs2bS |
 | User avatar hover | Hover | Hover Avatar info | Bf5XiTE7AO |
 | User avatar click | Click | Profile nguoi khac | w4WUvsJ9KI |
+
+### Viet Kudo (ihQ26W78P2)
+
+| Element | Action | Target Screen | Screen ID |
+|---------|--------|---------------|-----------|
+| Recipient search dropdown | Click/Type | Dropdown list nguoi nhan | zJzaC9GgXt |
+| Hashtag field dropdown | Click/Type | Dropdown list hashtag | p9zO-c4a4x |
+| Cancel button (Huy) | Click | Sun* Kudos - Live board (closes modal) | MaZUn5xHXZ |
+| Submit button (Gui) | Click | Sun* Kudos - Live board (on success, closes modal) | MaZUn5xHXZ |
+| Submit with missing fields | Click | Viet KUDO - Loi chua dien du | 5c7PkAibyD |
+| Close modal (X / overlay click) | Click | Previous screen (closes modal) | - |
+| Anonymous checkbox | Toggle | Stays on current screen (toggles anonymous mode) | ihQ26W78P2 |
+| Rich text toolbar (Bold, Italic, Strikethrough, Numbered list, Link, Quote) | Click | Stays on current screen (applies formatting) | ihQ26W78P2 |
+| Link button in toolbar | Click | Addlink Box (overlay) | OyDLDuSGEa |
+| Image upload | Click | File picker (OS native) | - |
 
 ---
 
@@ -482,6 +497,154 @@ He thong giai (FRAME - 313:8436)
 
 ---
 
+## Viet Kudo (Write Kudo) - Detailed Screen Specification
+
+**Screen ID**: ihQ26W78P2
+**Figma File Key**: 9ypp4enmFmdK3YAFJLIu6C
+**MoMorph URL**: https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/ihQ26W78P2
+**Status**: design (Spec Created)
+**Role in Flow**: This is a modal dialog for writing and sending kudos (appreciation messages) to teammates. It is accessed from the Sun* Kudos Live board via the "Write Kudo" button or from the Floating Action Button. After successful submission, the user returns to the Kudos Live board with the new kudo visible in the feed.
+
+### Component Hierarchy
+
+```
+Viet Kudo (FRAME - ihQ26W78P2)
+|
++-- Modal Overlay (dark background)
+|
++-- Modal Container (centered dialog)
+    |
+    +-- Header
+    |   +-- Title: "Gui loi cam on va ghi nhan den dong doi"
+    |   +-- Close button (X icon)
+    |
+    +-- Form Body
+    |   |
+    |   +-- Recipient Field (required)
+    |   |   +-- Label: "Nguoi nhan" / Recipient
+    |   |   +-- Search dropdown input
+    |   |   +-- Dropdown list (search results with user avatar, name, department)
+    |   |   +-- Selected recipient chip(s)
+    |   |
+    |   +-- Title/Danh hieu Field (required)
+    |   |   +-- Label: "Danh hieu" / Title
+    |   |   +-- Text input field
+    |   |
+    |   +-- Rich Text Editor
+    |   |   +-- Toolbar
+    |   |   |   +-- Bold (B)
+    |   |   |   +-- Italic (I)
+    |   |   |   +-- Strikethrough (S)
+    |   |   |   +-- Numbered list
+    |   |   |   +-- Link
+    |   |   |   +-- Quote (blockquote)
+    |   |   +-- Text area (content input)
+    |   |
+    |   +-- Hashtag Field (required, max 5)
+    |   |   +-- Label: "Hashtag"
+    |   |   +-- Tag input with dropdown suggestions
+    |   |   +-- Selected hashtag chips (max 5)
+    |   |
+    |   +-- Image Upload (optional, max 5)
+    |   |   +-- Upload area / button
+    |   |   +-- Image preview thumbnails
+    |   |   +-- Remove image button (per thumbnail)
+    |   |
+    |   +-- Anonymous Checkbox
+    |       +-- Checkbox: "Gui an danh" (Send anonymously)
+    |       +-- Description text explaining anonymous mode
+    |
+    +-- Footer / Actions
+        +-- Cancel button: "Huy"
+        +-- Submit button: "Gui" (primary)
+```
+
+### Design Items Summary
+
+| No | Name | Type | Kind | Required | Description |
+|----|------|------|------|----------|-------------|
+| 1 | Modal Title | label | label | - | "Gui loi cam on va ghi nhan den dong doi" |
+| 2 | Close Button (X) | button | icon_text | - | Closes the modal without submitting |
+| 3 | Recipient Field | dropdown | text_form | Yes | Search dropdown to select kudo recipient(s) |
+| 4 | Danh hieu Field | text_form | text_form | Yes | Text input for the kudo title/designation |
+| 5 | Rich Text Editor | textarea | textarea | No | Content area with formatting toolbar |
+| 5.1 | Bold Button | button | icon_text | - | Applies bold formatting |
+| 5.2 | Italic Button | button | icon_text | - | Applies italic formatting |
+| 5.3 | Strikethrough Button | button | icon_text | - | Applies strikethrough formatting |
+| 5.4 | Numbered List Button | button | icon_text | - | Inserts numbered list |
+| 5.5 | Link Button | button | icon_text | - | Opens add-link dialog (OyDLDuSGEa) |
+| 5.6 | Quote Button | button | icon_text | - | Applies blockquote formatting |
+| 6 | Hashtag Field | text_form | text_form | Yes | Tag input with dropdown, max 5 hashtags |
+| 7 | Image Upload | file_or_image | file_or_image | No | Upload images, max 5 files |
+| 8 | Anonymous Checkbox | checkbox | checkbox | No | Toggle anonymous sending mode |
+| 9 | Cancel Button | button | text_link | - | Closes modal without submitting |
+| 10 | Submit Button | button | text_link | - | Validates and submits the kudo |
+
+### Validation Rules
+
+| Field | Rule | Error Behavior |
+|-------|------|----------------|
+| Recipient | Required, at least 1 user selected | Highlights field, shows error on submit (5c7PkAibyD) |
+| Danh hieu (Title) | Required, non-empty | Highlights field, shows error on submit |
+| Hashtag | Required, at least 1, max 5 | Highlights field, shows error on submit |
+| Image Upload | Optional, max 5 files | Prevents adding beyond limit |
+| Rich Text Content | Optional | No validation |
+
+### Interactions & Behaviors
+
+1. **Modal Open/Close**:
+   - Opens as overlay on top of the current page (Sun* Kudos Live board)
+   - Close via X button, Cancel button, or clicking outside the modal
+   - Closing discards unsaved content (may show confirmation alert ZUofoTelpc)
+
+2. **Recipient Search Dropdown**:
+   - Type to search for users by name
+   - Dropdown shows matching users with avatar, name, and department
+   - Select a user to add as recipient chip
+   - Links to dropdown list screen (zJzaC9GgXt)
+
+3. **Rich Text Editor**:
+   - Toolbar buttons toggle formatting on selected text or at cursor position
+   - Link button opens the Addlink Box overlay (OyDLDuSGEa)
+   - Supports: Bold, Italic, Strikethrough, Numbered list, Link, Blockquote
+
+4. **Hashtag Field**:
+   - Type to search/filter available hashtags
+   - Dropdown shows matching hashtag suggestions (p9zO-c4a4x)
+   - Selected hashtags appear as removable chips
+   - Maximum 5 hashtags enforced
+
+5. **Image Upload**:
+   - Click to open OS file picker
+   - Supports multiple image files (max 5 total)
+   - Shows preview thumbnails with individual remove buttons
+   - File type/size validation applied
+
+6. **Anonymous Checkbox**:
+   - When checked, the kudo is sent without revealing the sender's identity
+   - The sender name is hidden from the recipient and public feed
+
+7. **Form Submission**:
+   - Submit button validates all required fields
+   - If validation fails, shows error state (5c7PkAibyD - Loi chua dien du thong tin)
+   - On success, closes modal and returns to Sun* Kudos Live board (MaZUn5xHXZ)
+   - New kudo appears in the live feed
+
+### Related Screens
+
+| Screen | Screen ID | Relationship |
+|--------|-----------|-------------|
+| Sun* Kudos - Live board | MaZUn5xHXZ | Parent screen (opens this modal) |
+| Dropdown list nguoi nhan | zJzaC9GgXt | Recipient search dropdown |
+| Dropdown list hashtag | p9zO-c4a4x | Hashtag suggestions dropdown |
+| Addlink Box | OyDLDuSGEa | Link insertion dialog |
+| Viet KUDO - Loi chua dien du | 5c7PkAibyD | Validation error state |
+| An danh | p9vFVBE_tc | Anonymous mode reference |
+| Alert Overlay | ZUofoTelpc | Confirmation dialogs |
+| Floating Action Button | _hphd32jN2 | Alternative entry point |
+
+---
+
 ## Navigation Graph
 
 ```mermaid
@@ -510,6 +673,7 @@ flowchart TD
     subgraph Kudos["Kudos Actions"]
         WriteKudo["Viet Kudo\n(ihQ26W78P2)"]
         ViewKudo["View Kudo\n(onDIohs2bS)"]
+        WriteKudoError["Viet Kudo - Loi\n(5c7PkAibyD)"]
     end
 
     subgraph Admin["Admin Section"]
@@ -533,6 +697,10 @@ flowchart TD
     KudosBoard -->|Kudo card click| ViewKudo
     KudosBoard -->|Avatar click| OtherProfile
     KudosBoard -->|Nav: Awards Info| PrizeSystem
+    WriteKudo -->|Submit success| KudosBoard
+    WriteKudo -->|Cancel / Close| KudosBoard
+    WriteKudo -->|Validation fail| WriteKudoError
+    WriteKudoError -->|Fix & resubmit| WriteKudo
     Homepage -->|Profile dropdown| MyProfile
     Homepage -->|Admin dropdown| AdminOverview
     AdminOverview --> AdminReview
@@ -571,6 +739,7 @@ flowchart TD
 | 2026-03-23 | Bulk discovery | Admin screens, Overlays, Secret Box | Full admin and utility screens |
 | 2026-04-06 | iOS screens added | iOS variants for mobile | Mobile-specific designs |
 | 2026-04-17 | He thong giai detailed | He thong giai component hierarchy | Full component tree, design items, interactions documented |
+| 2026-04-20 | Viet Kudo detailed | Viet Kudo component hierarchy | Full component tree, design items, validation rules, interactions, related screens documented |
 
 ---
 

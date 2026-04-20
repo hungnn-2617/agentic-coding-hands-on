@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Montserrat, Montserrat_Alternates } from 'next/font/google';
 import { LanguageProvider, HtmlLangUpdater } from '@/lib/i18n';
+import { Toaster } from 'sonner';
 import './globals.css';
 
 const montserrat = Montserrat({
@@ -36,6 +37,18 @@ export default function RootLayout({
         <LanguageProvider>
           <HtmlLangUpdater />
           {children}
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              style: {
+                background: '#FFF8E1',
+                color: '#00101A',
+                border: '1px solid #998C5F',
+                fontFamily: 'var(--font-montserrat), sans-serif',
+                fontWeight: 700,
+              },
+            }}
+          />
         </LanguageProvider>
       </body>
     </html>
