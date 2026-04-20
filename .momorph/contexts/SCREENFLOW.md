@@ -14,9 +14,9 @@
 | Metric | Count |
 |--------|-------|
 | Total Screens | 140 |
-| Discovered | 2 |
-| Remaining | 138 |
-| Completion | 1% |
+| Discovered | 3 |
+| Remaining | 137 |
+| Completion | 2% |
 
 ---
 
@@ -48,7 +48,7 @@
 | 22 | Chuc mung | SOzErYSp_S | [link](https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/SOzErYSp_S) | pending | - | - | - |
 | 23 | Color | B-HozgdIJd | [link](https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/B-HozgdIJd) | pending | - | - | - |
 | 24 | Component | dSQdI_iZpt | [link](https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/dSQdI_iZpt) | pending | - | - | - |
-| 25 | Countdown - Prelaunch page | 8PJQswPZmU | [link](https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/8PJQswPZmU) | pending | - | GET /prelaunch | - |
+| 25 | **Countdown - Prelaunch page** | 8PJQswPZmU | [link](https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/8PJQswPZmU) | **discovered** | [countdown_prelaunch_page.md](screen_specs/countdown_prelaunch_page.md) | GET /prelaunch, GET /prelaunch/status | Homepage SAA (auto-redirect) |
 | 26 | D1_Sunkudos | QJd9jB9PDt | [link](https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/QJd9jB9PDt) | pending | - | GET /kudos | - |
 | 27 | danh hieu (1) | BLR_P77oPR | [link](https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/BLR_P77oPR) | pending | - | GET /titles | - |
 | 28 | danh hieu (2) | Khd2HTCDip | [link](https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/Khd2HTCDip) | pending | - | - | - |
@@ -178,6 +178,7 @@ flowchart TD
     subgraph Main["Main Application"]
         HomepageSAA[Homepage SAA]
         SunKudosLiveBoard[Sun* Kudos - Live Board]
+        CountdownPrelaunch[Countdown - Prelaunch page]:::discovered
         ProfileSelf[Profile ban than]
         ProfileOther[Profile nguoi khac]
         Notification[Notification / Tat ca thong bao]
@@ -219,6 +220,8 @@ flowchart TD
     end
 
     Login --> HomepageSAA
+    Login -->|"Pre-launch active"| CountdownPrelaunch
+    CountdownPrelaunch -->|"Countdown complete"| HomepageSAA
     HomepageSAA --> DropdownLanguage
     HomepageSAA --> DropdownProfile
     HomepageSAA --> WriteKudo
@@ -380,7 +383,8 @@ flowchart TD
 | /giftbox/open | POST | Open Giftbox | Open gift box |
 | /community-standards | GET | [iOS] Sun*Kudos_Tieu chuan cong dong | Community standards |
 | /rules | GET | [iOS] The le | Rules/regulations |
-| /prelaunch | GET | Countdown - Prelaunch page | Pre-launch data |
+| /prelaunch | GET | Countdown - Prelaunch page | Pre-launch countdown target datetime and event info |
+| /prelaunch/status | GET | Countdown - Prelaunch page | Check if event has launched (redirect trigger) |
 | /roles | GET | Dropdown Role | List roles |
 
 ---
@@ -456,6 +460,7 @@ flowchart LR
 |------|--------|---------|-------|
 | 2026-04-17 | Initial discovery | Dropdown-ngon ngu (hUyaaugye2) | Started with language dropdown component. 140 total frames identified. |
 | 2026-04-17 | Screen discovery | Dropdown-profile (z4sCl3_Qtk) | Profile dropdown menu with Profile navigation and Logout action. Discovered /auth/logout endpoint. |
+| 2026-04-17 | Screen discovery | Countdown - Prelaunch page (8PJQswPZmU) | Full-screen pre-launch countdown page with LED-style timer (Days/Hours/Minutes). Auto-redirects to Homepage SAA when countdown completes. Added /prelaunch/status endpoint. |
 
 ---
 

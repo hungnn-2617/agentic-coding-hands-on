@@ -35,7 +35,16 @@
       "mcp__momorph__get_project_overview",
       "Bash(head -30 /Users/nguyen.ngoc.hungb/Documents/SunProject/ssa-2025-ex/ssa-2025-ex/components/ui/*.tsx)",
       "mcp__playwright__browser_snapshot",
-      "mcp__playwright__browser_type"
+      "mcp__playwright__browser_type",
+      "WebFetch(domain:fonts.google.com)",
+      "WebFetch(domain:fonts.googleapis.com)",
+      "Bash(npm search *)",
+      "Bash(npm view *)",
+      "WebFetch(domain:api.fontsource.org)",
+      "WebFetch(domain:cdn.jsdelivr.net)",
+      "Bash(npm run *)",
+      "Bash(kill %1)",
+      "Bash(pkill -f \"next dev\")"
     ]
   },
   "enableAllProjectMcpServers": true,

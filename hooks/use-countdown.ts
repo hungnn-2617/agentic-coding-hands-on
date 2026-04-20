@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { EVENT_START_DATE } from '@/lib/constants';
 
 interface CountdownResult {
   days: string;
@@ -44,15 +45,12 @@ export function useCountdown(): CountdownResult {
   });
 
   useEffect(() => {
-    const envDate = process.env.NEXT_PUBLIC_EVENT_START_DATE;
-    if (!envDate) {
-      setResult({ days: '00', hours: '00', minutes: '00', isExpired: false });
+    if (!EVENT_START_DATE) {
       return;
     }
 
-    const targetDate = new Date(envDate);
+    const targetDate = new Date(EVENT_START_DATE);
     if (isNaN(targetDate.getTime())) {
-      setResult({ days: '00', hours: '00', minutes: '00', isExpired: false });
       return;
     }
 

@@ -38,7 +38,7 @@ Build the Homepage SAA — the main authenticated landing page featuring a "ROOT
 **Key alignment notes:**
 - Constitution Principle II: Page is a Server Component by default. Only `CountdownTimer`, `LanguageSelector`, `NotificationBell`, `ProfileDropdown`, and `WidgetButton` use `"use client"`.
 - Constitution Principle III: Mobile-first responsive via Tailwind `sm:`, `md:`, `lg:`, `xl:` breakpoints.
-- Existing `NEXT_PUBLIC_EVENT_START_DATE` env var will be reused (spec called it `NEXT_PUBLIC_EVENT_DATETIME` but the codebase already uses `EVENT_START_DATE`).
+- Existing `EVENT_START_DATE` env var will be reused (spec called it `NEXT_PUBLIC_EVENT_DATETIME` but the codebase already uses `EVENT_START_DATE`).
 
 ---
 
@@ -250,7 +250,7 @@ public/
 1. Build `components/homepage/digit-card.tsx` — Single frosted-glass digit card (Server Component, pure visual). Props: `digit: string`.
 2. **TDD**: Write `components/homepage/__tests__/countdown-timer.test.tsx` — test: renders 6 digit cards (2 per unit), renders "Coming soon" when not expired, hides "Coming soon" when expired, has `aria-live="polite"`, renders correct unit labels
 3. Build `components/homepage/countdown-timer.tsx` — Client Component using `useCountdown` hook. Renders "Coming soon" label + 3 digit pairs + unit labels. Uses `suppressHydrationWarning` on digit elements.
-4. Build `components/homepage/event-info.tsx` — Server Component reading from env vars (`process.env.NEXT_PUBLIC_EVENT_START_DATE`, `process.env.NEXT_PUBLIC_EVENT_VENUE`, `process.env.NEXT_PUBLIC_EVENT_LIVESTREAM_NOTE`). Renders formatted date, venue, livestream note.
+4. Build `components/homepage/event-info.tsx` — Server Component reading from env vars (`process.env.EVENT_START_DATE`, `process.env.EVENT_VENUE`, `process.env.EVENT_LIVESTREAM_NOTE`). Renders formatted date, venue, livestream note.
 5. Build `components/homepage/cta-buttons.tsx` — Two `<Link>` elements styled as primary (gold) and secondary (outline) buttons with arrow icons. Hover swaps appearance per design-style.md.
 6. Build `components/homepage/hero-section.tsx` — Composes background image (next/image with priority), gradient overlay (CSS pseudo-element), ROOT FURTHER logo, CountdownTimer, EventInfo, CTAButtons. Full-width section.
 7. Create `components/homepage/index.ts` barrel export
@@ -316,7 +316,7 @@ Note: Header, Footer, and WidgetButton are in the `(main)/layout.tsx`, not in `p
 4. **Integration tests** (complement the unit tests written in earlier phases):
    - Homepage renders all 4 sections in correct order
    - Full navigation flow: header link click → correct URL, footer link click → correct URL
-   - Countdown + env var integration: changing `NEXT_PUBLIC_EVENT_START_DATE` changes displayed time
+   - Countdown + env var integration: changing `EVENT_START_DATE` changes displayed time
    - Profile dropdown shows "Admin Dashboard" when user role is admin, hides it otherwise
 
 ---

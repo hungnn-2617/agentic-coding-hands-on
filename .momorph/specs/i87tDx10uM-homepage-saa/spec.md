@@ -233,7 +233,7 @@ As a Sun* employee using a mobile or tablet device, I want the homepage to adapt
 - **TR-003**: All images MUST use `next/image` for automatic optimization per constitution.
 - **TR-004**: Header MUST be a shared component in the `(main)` layout as it appears on all authenticated pages.
 - **TR-005**: Event date/time MUST be configurable via `NEXT_PUBLIC_EVENT_DATETIME` environment variable (ISO-8601 format).
-- **TR-006**: Event venue, address, and livestream note MUST be configurable via environment variables (`NEXT_PUBLIC_EVENT_VENUE`, `NEXT_PUBLIC_EVENT_LIVESTREAM_NOTE`) or fetched from `/api/event-config`.
+- **TR-006**: Event venue, address, and livestream note MUST be configurable via environment variables (`EVENT_VENUE`, `EVENT_LIVESTREAM_NOTE`) or fetched from `/api/event-config`.
 - **TR-007**: Award data (titles, descriptions, slugs, thumbnail images) SHOULD be fetched from the API. Static fallback data MAY be used for initial implementation.
 
 ### State Management
