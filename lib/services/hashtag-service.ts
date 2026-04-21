@@ -35,7 +35,7 @@ export async function createHashtag(name: string, userId: string) {
 
   const { data, error } = await supabase
     .from('hashtags')
-    .insert({ name: trimmed, created_by: userId })
+    .insert({ name: trimmed })
     .select()
     .single();
 

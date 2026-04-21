@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const query = request.nextUrl.searchParams.get('q') ?? '';
+  const query = (request.nextUrl.searchParams.get('q') ?? '').trim();
   if (query.length < 1) {
     return NextResponse.json({ data: [] });
   }

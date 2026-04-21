@@ -167,7 +167,7 @@ export function WriteKudoModal({ isOpen, onClose, onSuccess, userId }: WriteKudo
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="w-[752px] max-w-full max-h-[calc(100vh-40px)] overflow-y-auto bg-[#FFF8E1] rounded-3xl p-10 flex flex-col gap-8 max-sm:w-full max-sm:h-full max-sm:max-h-full max-sm:rounded-none max-sm:p-4 sm:max-lg:w-[90vw] sm:max-lg:max-w-[752px] sm:max-lg:p-6"
+        className="w-[775px] max-w-full max-h-[calc(100vh-40px)] overflow-y-auto bg-[#FFF8E1] rounded-3xl p-10 flex flex-col gap-8 max-sm:w-full max-sm:h-full max-sm:max-h-full max-sm:rounded-none max-sm:p-4 sm:max-lg:w-[90vw] sm:max-lg:max-w-[775px] sm:max-lg:p-6"
       >
         {/* A: Title */}
         <h2

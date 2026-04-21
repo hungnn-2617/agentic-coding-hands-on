@@ -7,6 +7,7 @@ import { useLanguage } from '@/hooks/use-language';
 import { useKudosFilter } from '@/hooks/use-kudos-filter';
 import { WriteKudoModal } from '@/components/write-kudo';
 import { KVBanner } from '@/components/sun-kudos/kv-banner';
+import { SunnerSearchModal } from '@/components/sun-kudos/sunner-search-modal';
 import { SectionHeader } from '@/components/sun-kudos/section-header';
 import { FilterDropdownButton } from '@/components/sun-kudos/filter-dropdown-button';
 import { HighlightCarousel } from '@/components/sun-kudos/highlight-carousel';
@@ -45,6 +46,7 @@ export function SunKudosClient({
   filters,
 }: SunKudosClientProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const router = useRouter();
   const { t } = useLanguage();
   const { setHashtag, setDepartment } = useKudosFilter();
@@ -86,7 +88,7 @@ export function SunKudosClient({
       {/* KV Banner */}
       <KVBanner
         onRecognitionClick={() => setIsModalOpen(true)}
-        onSearchClick={() => {/* Search is a separate spec */}}
+        onSearchClick={() => setIsSearchOpen(true)}
       />
 
       {/* Main Content */}
@@ -159,6 +161,12 @@ export function SunKudosClient({
           router.refresh();
         }}
         userId={userId}
+      />
+
+      {/* Sunner Search Modal */}
+      <SunnerSearchModal
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
       />
     </div>
   );
