@@ -272,6 +272,65 @@ DROP POLICY IF EXISTS notifications_update ON notifications;
 CREATE POLICY notifications_update ON notifications FOR UPDATE USING (user_id = auth.uid());
 
 -- ==========================================
+-- PART 3.5: STORAGE BUCKET AND POLICIES
+-- ==========================================
+
+-- Create the kudo-images bucket if it doesn't exist
+INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+VALUES (
+    'kudo-images',
+    'kudo-images',
+    true,
+    5242880, -- 5MB
+    ARRAY['image/jpeg', 'image/png', 'image/gif', 'image/webp']
+)
+ON CONFLICT (id) DO NOTHING;
+
+-- Enable RLS on storage.objects
+ALTER TABLE storage.objects ENABLE ROW LEVEL SECURITY;
+
+-- Policy: Allow authenticated users to upload images to kudo-images bucket
+DROP POLICY IF EXISTS "Allow authenticated users to upload images" ON storage.objects;
+CREATE POLICY "Allow authenticated users to upload images"
+ON storage.objects
+FOR INSERT
+TO authenticated
+WITH CHECK (
+    bucket_id = 'kudo-images'
+    AND (storage.foldername(name))[1] = auth.uid()::text
+);
+
+-- Policy: Allow public read access to kudo-images
+DROP POLICY IF EXISTS "Allow public read access to kudo-images" ON storage.objects;
+CREATE POLICY "Allow public read access to kudo-images"
+ON storage.objects
+FOR SELECT
+TO public
+USING (bucket_id = 'kudo-images');
+
+-- Policy: Allow users to delete their own images
+DROP POLICY IF EXISTS "Allow users to delete own images" ON storage.objects;
+CREATE POLICY "Allow users to delete own images"
+ON storage.objects
+FOR DELETE
+TO authenticated
+USING (
+    bucket_id = 'kudo-images'
+    AND (storage.foldername(name))[1] = auth.uid()::text
+);
+
+-- Policy: Allow users to update their own images
+DROP POLICY IF EXISTS "Allow users to update own images" ON storage.objects;
+CREATE POLICY "Allow users to update own images"
+ON storage.objects
+FOR UPDATE
+TO authenticated
+USING (
+    bucket_id = 'kudo-images'
+    AND (storage.foldername(name))[1] = auth.uid()::text
+);
+
+-- ==========================================
 -- PART 4: SEED DATA
 -- ==========================================
 

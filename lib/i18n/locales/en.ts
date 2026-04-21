@@ -192,4 +192,9 @@ export const en: Translations = {
   // Live Board - Errors
   'liveBoard.error.likeFailed': 'Could not like Kudo. Please try again.',
   'liveBoard.error.loadMore': 'Could not load more. Try again.',
+
+  // Live Board - Search
+  'liveBoard.searchPlaceholder': 'Enter Sunner name to search...',
+  'liveBoard.noSearchResults': 'No results found',
+  'liveBoard.searchHint': 'Enter a name to search for Sunner profile',
 };

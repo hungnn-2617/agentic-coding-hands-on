@@ -239,7 +239,7 @@ A user accesses the Write Kudo modal from a mobile or tablet device.
 
 - **Modal background**: Warm cream/ivory (#FFF8E1) with 24px border-radius
 - **Modal overlay**: Dark semi-transparent background (rgba(0, 16, 26, 0.8)) behind the modal
-- **Modal width**: 752px (desktop), responsive on smaller screens
+- **Modal width**: 775px (desktop), responsive on smaller screens
 - **Section spacing**: 32px gap between form sections
 - **Modal padding**: 40px on all sides
 - **Primary CTA (Gửi)**: Golden yellow (#FFEA9E) background, dark text, 8px border-radius
@@ -407,7 +407,7 @@ A user accesses the Write Kudo modal from a mobile or tablet device.
 
 ## Notes
 
-- The modal is designed at **752px width** on desktop — must be responsive per constitution requirements.
+- The modal is designed at **775px width** on desktop — must be responsive per constitution requirements.
 - All typography uses **Montserrat** font (weight 700 bold) except required asterisks which use **Noto Sans JP**.
 - The toolbar buttons form a connected group: first button (Bold) has top-left border-radius, last section (character count / community standards) has top-right border-radius. The textarea connects below with bottom border-radius only.
 - The "Tiêu chuẩn cộng đồng" link appears in the rightmost toolbar section — it opens a community guidelines page/modal for writing Kudos.

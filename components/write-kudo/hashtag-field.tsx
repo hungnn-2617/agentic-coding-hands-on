@@ -115,7 +115,7 @@ export function HashtagField({
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
               placeholder="Search or create..."
-              className="w-full px-3 py-2 border-b border-[#998C5F] text-sm font-bold outline-none placeholder:text-[#666]"
+              className="w-full px-3 py-2 border-b border-[#998C5F] text-sm font-bold outline-none text-[#00101A] placeholder:text-[#666]"
             />
             <ul role="listbox">
               {filtered.map((tag) => (

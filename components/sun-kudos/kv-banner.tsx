@@ -15,7 +15,7 @@ export function KVBanner({ onRecognitionClick, onSearchClick }: KVBannerProps) {
       {/* KV Background with gradient overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/kudos-section-bg.png')" }}
+        style={{ backgroundImage: "url('/images/section-keyvisual.png')" }}
       />
       {/* Gradient overlay */}
       <div

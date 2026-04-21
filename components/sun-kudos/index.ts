@@ -8,6 +8,7 @@ export { ActionBar } from './action-bar';
 export { KVBanner } from './kv-banner';
 export { KudoCTAField } from './kudo-cta-field';
 export { SunnerSearchField } from './sunner-search-field';
+export { SunnerSearchModal } from './sunner-search-modal';
 export { SectionHeader } from './section-header';
 export { FilterDropdownButton } from './filter-dropdown-button';
 export { HighlightKudoCard } from './highlight-kudo-card';

@@ -129,6 +129,10 @@ export type TranslationKey =
   // Live Board - Errors
   | 'liveBoard.error.likeFailed'
   | 'liveBoard.error.loadMore'
+  // Live Board - Search
+  | 'liveBoard.searchPlaceholder'
+  | 'liveBoard.noSearchResults'
+  | 'liveBoard.searchHint'
   // Write Kudo Modal
   | 'writeKudo.title'
   | 'writeKudo.recipient.label'
