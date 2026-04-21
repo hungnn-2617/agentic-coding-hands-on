@@ -1,0 +1,22 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "ssa-2025-ex"
+main = ".open-next/worker.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# Cloudflare Pages Assets
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+# Environment Variables (add your Supabase keys in Cloudflare Dashboard)
+# These are placeholders - configure actual values in Cloudflare Dashboard
+# [vars]
+# NEXT_PUBLIC_SUPABASE_URL = ""
+# NEXT_PUBLIC_SUPABASE_ANON_KEY = ""
+
+# KV Namespace for caching (optional)
+# Uncomment and configure if needed
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "your-kv-namespace-id"

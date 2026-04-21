@@ -65,7 +65,11 @@
       "Bash(docker info:*)",
       "Bash(supabase stop:*)",
       "Bash(PGPASSWORD=postgres psql:*)",
-      "Bash(supabase status:*)"
+      "Bash(supabase status:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npx wrangler login --help:*)",
+      "Bash(npx wrangler login)",
+      "Bash(yarn install)"
     ]
   },
   "enableAllProjectMcpServers": true,
