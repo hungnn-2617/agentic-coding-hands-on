@@ -61,7 +61,7 @@ export function ImageUploadField({ images, dispatch, userId, labels }: ImageUplo
 
   async function handleRemove(image: KudoImage) {
     if (image.uploadedUrl) {
-      await deleteImage(image.uploadedUrl).catch(() => {});
+      await deleteImage(image.uploadedUrl, userId).catch(() => {});
     }
     if (image.previewUrl) {
       URL.revokeObjectURL(image.previewUrl);

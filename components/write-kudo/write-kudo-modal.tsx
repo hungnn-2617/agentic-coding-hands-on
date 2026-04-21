@@ -85,10 +85,10 @@ export function WriteKudoModal({ isOpen, onClose, onSuccess, userId }: WriteKudo
     for (const img of state.images) {
       if (img.previewUrl) URL.revokeObjectURL(img.previewUrl);
       if (deleteRemote && img.uploadedUrl) {
-        await deleteImage(img.uploadedUrl).catch(() => {});
+        await deleteImage(img.uploadedUrl, userId).catch(() => {});
       }
     }
-  }, [state.images]);
+  }, [state.images, userId]);
 
   const handleClose = useCallback(() => {
     cleanupImages();

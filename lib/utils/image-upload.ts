@@ -37,14 +37,36 @@ export async function uploadImage(file: File, userId: string): Promise<string> {
   return urlData.publicUrl;
 }
 
-export async function deleteImage(publicUrl: string): Promise<void> {
+/**
+ * Deletes an image from storage.
+ * SECURITY: Only allows deleting images owned by the specified user.
+ * The storage path format is: {userId}/{timestamp}-{randomId}.{ext}
+ */
+export async function deleteImage(publicUrl: string, userId: string): Promise<void> {
   const supabase = createClient();
   if (!supabase) return;
 
-  const url = new URL(publicUrl);
-  const pathParts = url.pathname.split(`/storage/v1/object/public/${BUCKET_NAME}/`);
-  if (pathParts.length < 2) return;
+  try {
+    const url = new URL(publicUrl);
+    const pathParts = url.pathname.split(`/storage/v1/object/public/${BUCKET_NAME}/`);
+    if (pathParts.length < 2) return;
 
-  const filePath = pathParts[1];
-  await supabase.storage.from(BUCKET_NAME).remove([filePath]);
+    const filePath = pathParts[1];
+
+    // SECURITY: Verify the image belongs to the requesting user
+    // Path format: {userId}/{timestamp}-{randomId}.{ext}
+    const pathUserId = filePath.split('/')[0];
+    if (pathUserId !== userId) {
+      console.warn(`[Security] User ${userId} attempted to delete image owned by ${pathUserId}`);
+      throw new Error('Unauthorized: Cannot delete images owned by other users');
+    }
+
+    await supabase.storage.from(BUCKET_NAME).remove([filePath]);
+  } catch (error) {
+    // Silently fail for invalid URLs but log for security monitoring
+    if (error instanceof Error && error.message.includes('Unauthorized')) {
+      throw error;
+    }
+    console.error('[deleteImage] Error:', error);
+  }
 }

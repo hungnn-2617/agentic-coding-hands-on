@@ -8,10 +8,31 @@ import type { CookieOptions } from '@supabase/ssr';
  * OAuth callback route handler.
  * Exchanges the auth code for a session and redirects to the homepage.
  */
+// Allowed redirect paths (whitelist)
+const ALLOWED_REDIRECT_PATHS = ['/', '/sun-kudos', '/awards-information', '/the-le'];
+
+function isValidRedirectPath(path: string): boolean {
+  // Must start with / and not contain protocol or external references
+  if (!path.startsWith('/')) return false;
+  if (path.startsWith('//')) return false; // Prevent protocol-relative URLs
+  if (path.includes('://')) return false; // Prevent absolute URLs
+  if (path.includes('\\')) return false; // Prevent backslash tricks
+
+  // Extract just the pathname (without query string)
+  const pathname = path.split('?')[0];
+
+  // Check against whitelist or allow any path starting with /
+  // For more security, use: return ALLOWED_REDIRECT_PATHS.includes(pathname);
+  return pathname.startsWith('/');
+}
+
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get('code');
-  const next = searchParams.get('next') ?? '/';
+  const rawNext = searchParams.get('next') ?? '/';
+
+  // Validate redirect path to prevent open redirect attacks
+  const next = isValidRedirectPath(rawNext) ? rawNext : '/';
 
   if (code) {
     const cookieStore = await cookies();
