@@ -31,7 +31,8 @@ describe('LoginButton', () => {
   it('renders with correct text and Google icon', () => {
     render(<LoginButton />, { wrapper });
 
-    expect(screen.getByText('LOGIN With Google')).toBeInTheDocument();
+    // Vietnamese: "Đăng nhập với Google"
+    expect(screen.getByText('Đăng nhập với Google')).toBeInTheDocument();
     expect(screen.getByRole('button')).toBeInTheDocument();
     expect(screen.getByLabelText('Sign in with Google')).toBeInTheDocument();
   });
@@ -112,7 +113,8 @@ describe('LoginButton', () => {
 
     await waitFor(() => {
       expect(button).not.toBeDisabled();
-      expect(screen.getByText('LOGIN With Google')).toBeInTheDocument();
+      // Vietnamese: "Đăng nhập với Google"
+      expect(screen.getByText('Đăng nhập với Google')).toBeInTheDocument();
       expect(screen.getByRole('alert')).toBeInTheDocument();
     });
 
