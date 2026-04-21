@@ -74,43 +74,142 @@ export interface Database {
       };
       kudos: {
         Row: {
-          id: string;
+          id: number;
           sender_id: string;
-          recipient_id: string;
+          receiver_id: string;
           title: string;
           content: string;
-          hashtags: string[];
-          images: string[];
           is_anonymous: boolean;
           anonymous_name: string | null;
+          status: 'published' | 'spam' | 'hidden';
+          like_count: number;
           created_at: string;
           updated_at: string;
+          deleted_at: string | null;
+        };
+        Insert: {
+          id?: number;
+          sender_id: string;
+          receiver_id: string;
+          title: string;
+          content: string;
+          is_anonymous?: boolean;
+          anonymous_name?: string | null;
+          status?: 'published' | 'spam' | 'hidden';
+          like_count?: number;
+          created_at?: string;
+          updated_at?: string;
+          deleted_at?: string | null;
+        };
+        Update: {
+          id?: number;
+          sender_id?: string;
+          receiver_id?: string;
+          title?: string;
+          content?: string;
+          is_anonymous?: boolean;
+          anonymous_name?: string | null;
+          status?: 'published' | 'spam' | 'hidden';
+          like_count?: number;
+          created_at?: string;
+          updated_at?: string;
+          deleted_at?: string | null;
+        };
+        Relationships: [];
+      };
+      kudo_hashtags: {
+        Row: {
+          id: number;
+          kudo_id: number;
+          hashtag_id: number;
+        };
+        Insert: {
+          id?: number;
+          kudo_id: number;
+          hashtag_id: number;
+        };
+        Update: {
+          id?: number;
+          kudo_id?: number;
+          hashtag_id?: number;
+        };
+        Relationships: [];
+      };
+      kudo_images: {
+        Row: {
+          id: number;
+          kudo_id: number;
+          image_url: string;
+          display_order: number;
+          created_at: string;
+        };
+        Insert: {
+          id?: number;
+          kudo_id: number;
+          image_url: string;
+          display_order?: number;
+          created_at?: string;
+        };
+        Update: {
+          id?: number;
+          kudo_id?: number;
+          image_url?: string;
+          display_order?: number;
+          created_at?: string;
+        };
+        Relationships: [];
+      };
+      kudo_likes: {
+        Row: {
+          id: number;
+          kudo_id: number;
+          user_id: string;
+          is_special_day: boolean;
+          heart_value: number;
+          created_at: string;
+        };
+        Insert: {
+          id?: number;
+          kudo_id: number;
+          user_id: string;
+          is_special_day?: boolean;
+          heart_value?: number;
+          created_at?: string;
+        };
+        Update: {
+          id?: number;
+          kudo_id?: number;
+          user_id?: string;
+          is_special_day?: boolean;
+          heart_value?: number;
+          created_at?: string;
+        };
+        Relationships: [];
+      };
+      secret_boxes: {
+        Row: {
+          id: string;
+          user_id: string;
+          is_opened: boolean;
+          prize_id: string | null;
+          opened_at: string | null;
+          created_at: string;
         };
         Insert: {
           id?: string;
-          sender_id: string;
-          recipient_id: string;
-          title: string;
-          content: string;
-          hashtags?: string[];
-          images?: string[];
-          is_anonymous?: boolean;
-          anonymous_name?: string | null;
+          user_id: string;
+          is_opened?: boolean;
+          prize_id?: string | null;
+          opened_at?: string | null;
           created_at?: string;
-          updated_at?: string;
         };
         Update: {
           id?: string;
-          sender_id?: string;
-          recipient_id?: string;
-          title?: string;
-          content?: string;
-          hashtags?: string[];
-          images?: string[];
-          is_anonymous?: boolean;
-          anonymous_name?: string | null;
+          user_id?: string;
+          is_opened?: boolean;
+          prize_id?: string | null;
+          opened_at?: string | null;
           created_at?: string;
-          updated_at?: string;
         };
         Relationships: [];
       };

@@ -9,8 +9,8 @@ export async function getHashtags() {
     .select('id, name')
     .order('name', { ascending: true });
 
-  if (error) throw error;
-  return data ?? [];
+  if (error || !data) return [];
+  return data;
 }
 
 export async function createHashtag(name: string, userId: string) {

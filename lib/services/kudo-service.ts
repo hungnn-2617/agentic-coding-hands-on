@@ -27,12 +27,16 @@ export async function createKudo(payload: CreateKudoPayload, senderId: string) {
   if (!supabase) throw new Error('Supabase not configured');
 
   // Verify recipient exists
-  const { data: recipient } = await supabase
+  const { data: recipient, error: recipientError } = await supabase
     .from('profiles')
     .select('id')
     .eq('id', payload.recipient_id)
     .single();
-  if (!recipient) throw new Error('Recipient not found');
+
+  if (recipientError || !recipient) {
+    console.error('[createKudo] Recipient lookup failed:', { recipientError, recipient_id: payload.recipient_id });
+    throw new Error('Recipient not found');
+  }
 
   const sanitizedContent = sanitizeHtml(payload.content);
 
@@ -46,21 +50,90 @@ export async function createKudo(payload: CreateKudoPayload, senderId: string) {
     ? (payload.anonymous_name?.trim() || 'Ẩn danh')
     : null;
 
-  const { data, error } = await supabase
+  // Insert kudo record
+  const { data: kudo, error: kudoError } = await supabase
     .from('kudos')
     .insert({
       sender_id: senderId,
-      recipient_id: payload.recipient_id,
+      receiver_id: payload.recipient_id,
       title: payload.title.trim(),
       content: sanitizedContent,
-      hashtags: payload.hashtags,
-      images: payload.images ?? [],
       is_anonymous: payload.is_anonymous,
       anonymous_name: anonymousName,
     })
     .select()
     .single();
 
-  if (error) throw error;
-  return data;
+  if (kudoError) {
+    console.error('[createKudo] Error inserting kudo:', kudoError);
+    throw kudoError;
+  }
+
+  // Insert hashtags via junction table
+  if (payload.hashtags.length > 0) {
+    // Get or create hashtag IDs
+    const { data: existingHashtags, error: fetchHashtagsError } = await supabase
+      .from('hashtags')
+      .select('id, name')
+      .in('name', payload.hashtags);
+
+    if (fetchHashtagsError) {
+      console.error('[createKudo] Error fetching hashtags:', fetchHashtagsError);
+      throw new Error('Failed to fetch hashtags');
+    }
+
+    const existingNames = new Set((existingHashtags ?? []).map((h) => h.name));
+    const newHashtags = payload.hashtags.filter((name) => !existingNames.has(name));
+
+    // Insert new hashtags (ignore duplicates with onConflict)
+    if (newHashtags.length > 0) {
+      const { error: insertHashtagError } = await supabase
+        .from('hashtags')
+        .upsert(
+          newHashtags.map((name) => ({ name })),
+          { onConflict: 'name', ignoreDuplicates: true }
+        );
+      if (insertHashtagError) {
+        console.error('[createKudo] Error inserting hashtags:', insertHashtagError);
+        throw new Error('Failed to create hashtags');
+      }
+    }
+
+    // Fetch all hashtag IDs (existing + newly created)
+    const { data: allHashtags, error: fetchAllError } = await supabase
+      .from('hashtags')
+      .select('id')
+      .in('name', payload.hashtags);
+
+    if (fetchAllError) {
+      console.error('[createKudo] Error fetching all hashtags:', fetchAllError);
+      throw new Error('Failed to fetch hashtag IDs');
+    }
+
+    // Create junction records
+    if (allHashtags && allHashtags.length > 0) {
+      const { error: hashtagError } = await supabase
+        .from('kudo_hashtags')
+        .insert(allHashtags.map((h) => ({ kudo_id: kudo.id, hashtag_id: h.id })));
+      if (hashtagError) {
+        console.error('[createKudo] Error creating kudo_hashtags:', hashtagError);
+        throw hashtagError;
+      }
+    }
+  }
+
+  // Insert images
+  const images = payload.images ?? [];
+  if (images.length > 0) {
+    const { error: imageError } = await supabase
+      .from('kudo_images')
+      .insert(images.map((url, idx) => ({
+        kudo_id: kudo.id,
+        image_url: url,
+        display_order: idx,
+      })));
+    if (imageError) throw imageError;
+  }
+
+  return kudo;
 }

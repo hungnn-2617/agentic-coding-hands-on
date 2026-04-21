@@ -163,11 +163,52 @@
 
 | Element | Action | Target Screen | Screen ID |
 |---------|--------|---------------|-----------|
-| Header nav links | Click | Same as Homepage nav | - |
-| Write Kudo button | Click | Viet Kudo | ihQ26W78P2 |
-| Kudo card | Click | View Kudo | onDIohs2bS |
-| User avatar hover | Hover | Hover Avatar info | Bf5XiTE7AO |
-| User avatar click | Click | Profile nguoi khac | w4WUvsJ9KI |
+| Logo (Header) | Click | Homepage SAA (scroll top) | i87tDx10uM |
+| Nav: "About SAA 2025" | Click | Homepage SAA | i87tDx10uM |
+| Nav: "Awards Information" | Click | He thong giai | zFYDgyj_pD |
+| Nav: "Sun* Kudos" | Click | Sun* Kudos Live board (current, scroll top) | MaZUn5xHXZ |
+| Notification Bell (Header) | Click | Notification panel (overlay) | D_jgDqvIc8 |
+| Language Selector (Header) | Click | Language dropdown | hUyaaugye2 |
+| User Avatar (Header) | Click | Dropdown-profile | z4sCl3_Qtk |
+| A.1 - Button ghi nhan (text field) | Click | Viet Kudo (opens modal) | ihQ26W78P2 |
+| B.7.3 - Tim kiem sunner (search bar) | Enter/Click | Search results / Profile lookup | - |
+| B.1.1 - Hashtag filter button | Click | Dropdown list hashtag (overlay) | p9zO-c4a4x |
+| B.1.2 - Phong ban filter button | Click | Dropdown Phong ban (overlay) | WXK5AYB_rG |
+| B.2.1 - Carousel prev button | Click | Previous highlight slide (in-page) | - |
+| B.2.2 - Carousel next button | Click | Next highlight slide (in-page) | - |
+| B.5.1 - Pagination prev button | Click | Previous slide (in-page) | - |
+| B.5.3 - Pagination next button | Click | Next slide (in-page) | - |
+| B.3 - Highlight Kudo card | Click | View Kudo (detail) | onDIohs2bS |
+| B.3.1 - Avatar nguoi gui (Highlight) | Hover | Hover Avatar info user | Bf5XiTE7AO |
+| B.3.1 - Avatar nguoi gui (Highlight) | Click | Profile nguoi khac | w4WUvsJ9KI |
+| B.3.5 - Avatar nguoi nhan (Highlight) | Hover | Hover Avatar info user | Bf5XiTE7AO |
+| B.3.5 - Avatar nguoi nhan (Highlight) | Click | Profile nguoi khac | w4WUvsJ9KI |
+| B.4.3 - Hashtag (Highlight card) | Click | Filters updated (in-page) | - |
+| B.4.4 - Copy Link (Highlight card) | Click | Copy URL to clipboard, show toast | - |
+| B.4.4 - Xem chi tiet (Highlight card) | Click | View Kudo (detail) | onDIohs2bS |
+| B.4.4 - Heart (Highlight card) | Click | Toggle like (in-page) | - |
+| B.7 - Spotlight board node | Click | View Kudo (detail) | onDIohs2bS |
+| B.7 - Spotlight board node | Hover | Tooltip with name and time | - |
+| B.7.2 - Pan/Zoom button | Click | Toggle pan/zoom mode (in-page) | - |
+| C.3 - KUDO Post card | Click | View Kudo (detail) | onDIohs2bS |
+| C.3.1 - Thong tin nguoi gui (All Kudos) | Hover | Hover Avatar info user | Bf5XiTE7AO |
+| C.3.1 - Thong tin nguoi gui (All Kudos) | Click | Profile nguoi khac | w4WUvsJ9KI |
+| C.3.3 - Thong tin nguoi nhan (All Kudos) | Hover | Hover Avatar info user | Bf5XiTE7AO |
+| C.3.3 - Thong tin nguoi nhan (All Kudos) | Click | Profile nguoi khac | w4WUvsJ9KI |
+| C.3.6 - Image dinh kem | Click | Full image viewer (overlay) | - |
+| C.3.7 - Hashtag (All Kudos card) | Click | Filters updated (in-page) | - |
+| C.4.1 - Heart button (All Kudos) | Click | Toggle like (in-page) | - |
+| C.4.2 - Copy Link (All Kudos) | Click | Copy URL to clipboard, show toast | - |
+| D.1.8 - Button mo qua (sidebar) | Click | Open secret box - chua mo (dialog) | J3-4YFIpMM |
+| D.3.2 - Sunner nhan qua (sidebar) | Click | Profile nguoi khac | w4WUvsJ9KI |
+| D.3.2 - Sunner nhan qua (sidebar) | Hover | Hover Avatar info user | Bf5XiTE7AO |
+| Widget Button | Click | Floating Action Button | _hphd32jN2 |
+| Footer Logo | Click | Homepage SAA (scroll top) | i87tDx10uM |
+| Footer: "About SAA 2025" | Click | Homepage SAA | i87tDx10uM |
+| Footer: "Awards Information" | Click | He thong giai | zFYDgyj_pD |
+| Footer: "Sun* Kudos" | Click | Sun* Kudos Live board (scroll top) | MaZUn5xHXZ |
+| Footer: "Tieu chuan chung" | Click | Tieu chuan cong dong | Dpn7C89--r |
+| Infinity scroll (All Kudos) | Scroll | Load more Kudos (in-page) | - |
 
 ### Floating Action Button - Collapsed (_hphd32jN2)
 
@@ -660,6 +701,289 @@ Viet Kudo (FRAME - ihQ26W78P2)
 
 ---
 
+## Sun* Kudos - Live board - Detailed Screen Specification
+
+**Screen ID**: MaZUn5xHXZ
+**Figma File Key**: 9ypp4enmFmdK3YAFJLIu6C
+**MoMorph URL**: https://momorph.ai/files/9ypp4enmFmdK3YAFJLIu6C/screens/MaZUn5xHXZ
+**Status**: design (Spec Created)
+**Role in Flow**: This is the main Sun* Kudos live board page. It serves as the central hub for viewing, interacting with, and creating kudos (appreciation messages). Users navigate here from the Homepage, Awards Information page, or via the primary navigation bar. The page features a highlight carousel of top kudos, an interactive Spotlight board (word cloud), a full feed of all kudos with infinite scroll, and a sidebar with personal statistics and leaderboards.
+
+### Component Hierarchy
+
+```
+Sun* Kudos - Live board (FRAME - MaZUn5xHXZ)
+|
++-- Header (INSTANCE - shared component)
+|   +-- Logo (INSTANCE) - click -> Homepage
+|   +-- Navigation Links
+|   |   +-- Button-IC: "About SAA 2025" -> Homepage
+|   |   +-- Button-IC: "Awards Information" -> He thong giai
+|   |   +-- Button-IC: "Sun* Kudos" -> current (active)
+|   +-- Language Selector (INSTANCE)
+|   +-- Notification (INSTANCE)
+|   +-- User Avatar (INSTANCE)
+|
++-- A_KV Kudos (FRAME - hero banner)
+|   +-- Title: "He thong ghi nhan va cam on"
+|   +-- KUDOS logo
+|   +-- A.1_Button ghi nhan (INSTANCE - text field pill)
+|       +-- Placeholder: "Hom nay, ban muon gui loi cam on va ghi nhan den ai?"
+|       +-- Click -> Opens Viet Kudo modal (ihQ26W78P2)
+|   +-- B.7.3_Tim kiem sunner (INSTANCE - search bar)
+|       +-- Placeholder: "Tim kiem profile Sunner"
+|       +-- Max 100 characters
+|
++-- B_Highlight (FRAME - Highlight Kudos section)
+|   |
+|   +-- B.1_header (FRAME - section header + filters)
+|   |   +-- Subtitle: "Sun* Annual Awards 2025"
+|   |   +-- Title: "HIGHLIGHT KUDOS"
+|   |   +-- B.1.1_ButtonHashtag (INSTANCE - dropdown filter)
+|   |   |   +-- Click -> Dropdown list hashtag (p9zO-c4a4x)
+|   |   +-- B.1.2_Button Phong ban (INSTANCE - dropdown filter)
+|   |       +-- Click -> Dropdown Phong ban (WXK5AYB_rG)
+|   |
+|   +-- B.2_HIGHLIGHT KUDOS (GROUP - carousel)
+|   |   +-- B.2.1_Button lui (INSTANCE - prev arrow)
+|   |   +-- B.2.3_content Highlight KUDO (FRAME - carousel content)
+|   |   +-- B.2.2_Button tien (INSTANCE - next arrow)
+|   |
+|   +-- B.3_KUDO - Highlight (INSTANCE - highlight card, repeated for each slide)
+|   |   +-- B.3.1_Avatar nguoi gui (ELLIPSE - sender avatar)
+|   |   |   +-- Click -> Profile nguoi khac (w4WUvsJ9KI)
+|   |   |   +-- Hover -> Hover Avatar info (Bf5XiTE7AO)
+|   |   +-- B.3.2_Thong tin nguoi gui (FRAME - sender name + dept + stars)
+|   |   +-- B.3.4_Icon mui ten (FRAME - arrow icon, non-interactive)
+|   |   +-- B.3.5_Avatar nguoi nhan (ELLIPSE - recipient avatar)
+|   |   |   +-- Click -> Profile nguoi khac (w4WUvsJ9KI)
+|   |   |   +-- Hover -> Hover Avatar info (Bf5XiTE7AO)
+|   |   +-- B.3.6_Thong tin nguoi nhan (FRAME - recipient name + dept + stars)
+|   |   +-- B.4_Noi dung loi cam on (FRAME - content area)
+|   |   |   +-- B.4.1_Thoi gian dang (TEXT - timestamp "HH:mm - MM/DD/YYYY")
+|   |   |   +-- B.4.2_Noi dung (FRAME - kudos text, max 3 lines with "...")
+|   |   |   +-- B.4.3_Hashtag (FRAME - hashtag chips, max 5 per line)
+|   |   +-- B.4.4_Action (FRAME - action bar)
+|   |       +-- Heart icon + count (toggle like)
+|   |       +-- "Copy Link" button
+|   |       +-- "Xem chi tiet" button -> View Kudo detail
+|   |
+|   +-- B.5_slide (FRAME - pagination controls)
+|       +-- B.5.1_Button lui (INSTANCE - prev)
+|       +-- B.5.2_so trang (TEXT - "2/5" page indicator)
+|       +-- B.5.3_Button tien (INSTANCE - next)
+|
++-- B.6_Header Giai thuong (FRAME - Spotlight section header)
+|   +-- Subtitle: "Sun* Annual Awards 2025"
+|   +-- Title: "SPOTLIGHT BOARD"
+|
++-- B.7_Spotlight (FRAME - interactive word cloud board)
+|   +-- B.7.1_388 KUDOS (TEXT - total kudos count from DB)
+|   +-- B.7.2_Pan zoom (FRAME - pan/zoom toggle button)
+|   +-- B.7.3_Tim kiem sunner (INSTANCE - search bar)
+|   +-- Canvas: interactive node diagram with user names
+|       +-- Hover node -> tooltip (name + time)
+|       +-- Click node -> View Kudo detail
+|
++-- C_All kudos (FRAME - All Kudos section)
+|   |
+|   +-- C.1_Header Giai thuong (FRAME - section header)
+|   |   +-- Subtitle: "Sun* Annual Awards 2025"
+|   |   +-- Title: "ALL KUDOS"
+|   |
+|   +-- C.2_Danh sach loi cam on (FRAME - kudos feed list)
+|       +-- C.3_KUDO Post (INSTANCE - kudo card, repeated)
+|       |   +-- C.3.1_Thong tin nguoi gui (INSTANCE - sender info block)
+|       |   |   +-- Avatar, name, stars, title
+|       |   |   +-- Click -> Profile nguoi khac (w4WUvsJ9KI)
+|       |   |   +-- Hover -> Hover Avatar info (Bf5XiTE7AO)
+|       |   +-- C.3.2_Icon sent (FRAME - sent icon, non-interactive)
+|       |   +-- C.3.3_Thong tin nguoi nhan (INSTANCE - recipient info block)
+|       |   |   +-- Avatar, name, stars, title
+|       |   |   +-- Click -> Profile nguoi khac (w4WUvsJ9KI)
+|       |   |   +-- Hover -> Hover Avatar info (Bf5XiTE7AO)
+|       |   +-- C.3.4_Time (TEXT - timestamp "HH:mm - MM/DD/YYYY")
+|       |   +-- D.4_hashtag (FRAME - tag label, e.g. "IDOL GIOI TRE")
+|       |   +-- C.3.5_Content (FRAME - kudos text, max 5 lines with "...")
+|       |   +-- C.3.6_Image dinh kem (FRAME - attached images, max 5 thumbnails)
+|       |   |   +-- Click image -> full image viewer
+|       |   +-- C.3.7_Hashtag (FRAME - hashtag chips list)
+|       |   +-- C.4_Button (FRAME - action bar)
+|       |       +-- C.4.1_Hearts (FRAME - heart toggle + count)
+|       |       +-- C.4.2_Copy link button (INSTANCE - "Copy Link")
+|       +-- C.5_KUDOpost, C.6_KUDOpost, C.7_KUDOpost (INSTANCES - same as C.3)
+|       +-- Infinite scroll loads more cards
+|
++-- D_Thong menu phai (FRAME - right sidebar)
+|   |
+|   +-- D.1_Thong ke tong quat (FRAME - statistics overview)
+|   |   +-- D.1.2_So kudos nhan duoc (INSTANCE - "So Kudos ban nhan duoc: 25")
+|   |   +-- D.1.3_So kudos da gui (INSTANCE - "So Kudos ban da gui: 25")
+|   |   +-- D.1.4_So tim (FRAME - "So tim ban nhan duoc: 25")
+|   |   +-- D.1.5_phan cach noi dung (RECTANGLE - divider)
+|   |   +-- D.1.6_So secret box da mo (INSTANCE - "So Secret Box ban da mo: 25")
+|   |   +-- D.1.7_So secret box chua mo (INSTANCE - "So Secret Box chua mo: 25")
+|   |   +-- D.1.8_Button mo qua (INSTANCE - "Mo Secret Box" button)
+|   |       +-- Click -> Open secret box - chua mo (J3-4YFIpMM)
+|   |
+|   +-- D.3_10 SUNNER nhan qua (FRAME - leaderboard)
+|       +-- D.3.1_title (TEXT - "10 SUNNER NHAN QUA MOI NHAT")
+|       +-- D.3.2-D.3.6_Thong tin Sunner nhan qua (INSTANCES - user list items)
+|           +-- Avatar (circle) + Name + Gift description
+|           +-- Click name/avatar -> Profile nguoi khac (w4WUvsJ9KI)
+|           +-- Hover name/avatar -> Hover Avatar info (Bf5XiTE7AO)
+|
++-- Footer (INSTANCE - shared component)
+    +-- Logo -> Homepage
+    +-- Navigation links (About SAA 2025, Awards Information, Sun* Kudos, Tieu chuan chung)
+    +-- Copyright: "Ban quyen thuoc ve Sun* (c) 2025"
+```
+
+### Design Items Summary
+
+| No | Name | Type | Kind | Description |
+|----|------|------|------|-------------|
+| A | KV Kudos | FRAME | others (hero) | Hero banner with title "He thong ghi nhan loi cam on" and KUDOS logo |
+| A.1 | Button ghi nhan | INSTANCE | text_form | Pill-shaped input field to open the Write Kudo modal |
+| B | Highlight | FRAME | others (carousel) | Highlight Kudos section with filters and carousel of top kudos |
+| B.1 | header | FRAME | others (section_header) | Section title "HIGHLIGHT KUDOS" with Hashtag and Phong ban filter dropdowns |
+| B.1.1 | ButtonHashtag | INSTANCE | button (icon_text) | Opens hashtag filter dropdown -> Dropdown list hashtag (p9zO-c4a4x) |
+| B.1.2 | Button Phong ban | INSTANCE | button (icon_text) | Opens department filter dropdown -> Dropdown Phong ban (WXK5AYB_rG) |
+| B.2 | HIGHLIGHT KUDOS | GROUP | others (carousel) | Carousel container showing top 5 kudos by heart count |
+| B.2.1 | Button lui | INSTANCE | button (icon_text) | Prev carousel navigation, disabled at first card |
+| B.2.2 | Button tien | INSTANCE | button (icon_text) | Next carousel navigation, disabled at last card |
+| B.2.3 | content Highlight KUDO | FRAME | others (carousel) | Carousel content area for highlight cards |
+| B.3 | KUDO - Highlight | INSTANCE | others (card) | Highlight kudo card with sender, recipient, content, hashtags, actions |
+| B.3.1 | Avatar nguoi gui | ELLIPSE | others (avatar) | Sender avatar; click -> profile, hover -> avatar info |
+| B.3.2 | Thong tin nguoi gui | FRAME | label | Sender name, department, star count |
+| B.3.4 | Icon mui ten | FRAME | others (icon) | Arrow icon indicating "sent to", non-interactive |
+| B.3.5 | Avatar nguoi nhan | ELLIPSE | others (avatar) | Recipient avatar; click -> profile, hover -> avatar info |
+| B.3.6 | Thong tin nguoi nhan | FRAME | label | Recipient name, department, star count |
+| B.4 | Noi dung loi cam on | FRAME | others (card) | Kudos content area: timestamp, text (max 3 lines), hashtags |
+| B.4.1 | Thoi gian dang | TEXT | label | Post timestamp in "HH:mm - MM/DD/YYYY" format |
+| B.4.2 | Noi dung | FRAME | others (card_text) | Kudos text content, truncated at 3 lines with "..." |
+| B.4.3 | Hashtag | FRAME | label | Hashtag chips, max 5 per line; click filters view |
+| B.4.4 | Action | FRAME | others (action_bar) | Heart + count, Copy Link, Xem chi tiet buttons |
+| B.5 | slide | FRAME | others (navigation) | Carousel pagination: prev, "2/5" indicator, next |
+| B.5.1 | Button lui | INSTANCE | button (icon_text) | Pagination prev, disabled at page 1 |
+| B.5.2 | so trang | TEXT | label | Page indicator "2/5" |
+| B.5.3 | Button tien | INSTANCE | button (icon_text) | Pagination next, disabled at last page |
+| B.6 | Header Giai thuong | FRAME | others (info_block) | Spotlight section header: "Sun* Annual Awards 2025 - SPOTLIGHT BOARD" |
+| B.7 | Spotlight | FRAME | others (info_block) | Interactive word cloud/diagram board showing kudos recipients |
+| B.7.1 | 388 KUDOS | TEXT | label | Total kudos count header, queried from DB |
+| B.7.2 | Pan zoom | FRAME | button (icon_text) | Toggle pan/zoom mode on Spotlight canvas |
+| B.7.3 | Tim kiem sunner | INSTANCE | text_form | Search bar for finding Sunner profiles, max 100 chars |
+| C | All kudos | FRAME | others (list) | Full kudos feed with sidebar, infinite scroll |
+| C.1 | Header Giai thuong | FRAME | others (section_header) | Section header: "Sun* Annual Awards 2025 - ALL KUDOS" |
+| C.2 | Danh sach loi cam on | FRAME | others (list) | List of kudo post cards |
+| C.3 | KUDO Post | INSTANCE | others (card) | Kudo card: sender/recipient info, content, images, hashtags, actions |
+| C.3.1 | Thong tin nguoi gui | INSTANCE | others (info_block) | Sender info with avatar, name, stars; click -> profile, hover -> preview |
+| C.3.2 | Icon sent | FRAME | others (icon) | "Sent" status icon, non-interactive |
+| C.3.3 | Thong tin nguoi nhan | INSTANCE | others (info_block) | Recipient info with avatar, name, stars; click -> profile, hover -> preview |
+| C.3.4 | Time | TEXT | label | Timestamp "HH:mm - MM/DD/YYYY" |
+| C.3.5 | Content | FRAME | others (card) | Kudos text, max 5 lines with "..." truncation |
+| C.3.6 | Image dinh kem | FRAME | others (attachment_images) | Attached images, max 5 thumbnails; click -> full image |
+| C.3.7 | Hashtag | FRAME | label | Hashtag chips list; click tag -> filter content |
+| C.4 | Button | FRAME | button (icon_text) | Action bar: heart + count, Copy Link |
+| C.4.1 | Hearts | FRAME | button (icon_text) | Heart toggle with like count. Special rules: 1 like per user per kudo, sender cannot like own kudo, special days give 2 hearts |
+| C.4.2 | Copy link button | INSTANCE | button (text_link) | Copies kudo URL, shows toast "Link copied -- ready to share!" |
+| D | Thong menu phai | FRAME | others (info_block) | Right sidebar: stats + leaderboards |
+| D.1 | Thong ke tong quat | FRAME | others (info_block) | Personal statistics: kudos received/sent, hearts, Secret Boxes |
+| D.1.2 | So kudos nhan duoc | INSTANCE | others (info_block) | "So Kudos ban nhan duoc: 25" |
+| D.1.3 | So kudos da gui | INSTANCE | others (info_block) | "So Kudos ban da gui: 25" |
+| D.1.4 | So tim | FRAME | label | "So tim ban nhan duoc: 25" |
+| D.1.5 | phan cach noi dung | RECTANGLE | others (divider) | Horizontal divider line |
+| D.1.6 | So secret box da mo | INSTANCE | others (info_block) | "So Secret Box ban da mo: 25" |
+| D.1.7 | So secret box chua mo | INSTANCE | others (info_block) | "So Secret Box chua mo: 25" |
+| D.1.8 | Button mo qua | INSTANCE | button (icon_text) | "Mo Secret Box" -> Open secret box dialog (J3-4YFIpMM) |
+| D.3 | 10 SUNNER nhan qua | FRAME | others (list_item) | Leaderboard: 10 most recent gift recipients |
+| D.3.1 | title | TEXT | label | "10 SUNNER NHAN QUA MOI NHAT" |
+| D.3.2-D.3.6 | Thong tin Sunner nhan qua | INSTANCES | others (list_item) | User row: avatar + name + gift desc; click -> profile |
+| D.4 | hashtag | FRAME | button (icon_text) | Tag label (e.g., "IDOL GIOI TRE"); click -> filter by tag |
+
+### Star Rating Logic (Hoa thi / Asterisk System)
+
+Stars displayed next to user names indicate their kudos recognition level:
+- **1 star**: Sunner has received 10 Kudos - beginning to spread warm energy
+- **2 stars**: Sunner has received 20 Kudos - proven positive influence through daily actions
+- **3 stars**: Sunner has received 50 Kudos - a role model of recognition, sharing, and Sun* spirit
+
+### Heart (Like) Business Rules
+
+- Each user can give exactly **1 heart** per kudo
+- **Sender cannot heart their own kudo** (button is disabled)
+- Each heart on a kudo adds **1 heart** to the kudo sender's account
+- On **special days** (configured by admin), each heart gives the sender **2 hearts** instead of 1
+- Users can **remove their heart**; the corresponding 1 or 2 hearts are revoked from the sender's account
+
+### Interactions & Behaviors
+
+1. **Hero Banner (A_KV Kudos)**:
+   - A.1 "Button ghi nhan" is a pill-shaped text field; clicking opens the Viet Kudo modal (ihQ26W78P2)
+   - Search bar (B.7.3) allows searching for Sunner profiles
+
+2. **Highlight Kudos Carousel (B_Highlight)**:
+   - Displays top 5 kudos with the most hearts across the event
+   - Center slide is prominent; slides on either side are dimmed
+   - Arrow buttons and pagination ("2/5") control navigation
+   - Arrows disabled at boundary slides
+   - Filters (Hashtag, Phong ban) affect both Highlight and All Kudos sections simultaneously
+   - Selecting a filter resets carousel pagination to page 1
+
+3. **Spotlight Board (B.7_Spotlight)**:
+   - Interactive word cloud / node diagram displaying kudos recipients
+   - Header shows total kudos count (e.g., "388 KUDOS") from the database
+   - Pan/Zoom toggle button for canvas navigation
+   - Hover on node: tooltip with name and kudos receipt time
+   - Click on node: opens corresponding kudo detail
+   - States: loading, empty ("Khong co du lieu"), interactive
+
+4. **All Kudos Feed (C_All kudos)**:
+   - Vertical feed of kudo post cards with infinite scroll
+   - Each card shows: sender info, recipient info, timestamp, tag label, content (max 5 lines), attached images (max 5), hashtag chips, heart button + count, Copy Link button
+   - Click on avatar/name -> opens profile
+   - Hover on avatar/name -> shows avatar info preview
+   - Click on image thumbnail -> opens full image viewer
+   - Click on hashtag -> filters both Highlight and All Kudos by that tag
+   - Empty state: "Hien tai chua co Kudos nao."
+
+5. **Right Sidebar (D_Thong menu phai)**:
+   - **Statistics block** (D.1): Shows personal metrics (Kudos received, Kudos sent, Hearts received, Secret Boxes opened/remaining)
+   - **"Mo qua" button** (D.1.8): Opens the Secret Box dialog (J3-4YFIpMM)
+   - **Leaderboard** (D.3): "10 SUNNER NHAN QUA MOI NHAT" - list of recent gift recipients
+   - Click avatar/name in leaderboard -> profile
+   - Hover avatar/name -> preview
+   - Sidebar scrolls independently
+   - Empty leaderboard state: "Chua co du lieu"
+
+6. **Shared Header Navigation**:
+   - "Sun* Kudos" nav link is in active/selected state
+   - All standard header interactions (logo, nav links, notification, language, profile dropdown)
+
+7. **Shared Footer Navigation**:
+   - Standard footer with logo, nav links, and "Tieu chuan chung" link
+
+### Related Screens
+
+| Screen | Screen ID | Relationship |
+|--------|-----------|-------------|
+| Homepage SAA | i87tDx10uM | Primary navigation (header/footer) |
+| He thong giai | zFYDgyj_pD | Primary navigation (header/footer) |
+| Viet Kudo | ihQ26W78P2 | Opens as modal when clicking "Button ghi nhan" |
+| View Kudo | onDIohs2bS | Opens when clicking kudo card or "Xem chi tiet" |
+| Dropdown list hashtag | p9zO-c4a4x | Overlay for hashtag filter |
+| Dropdown Phong ban | WXK5AYB_rG | Overlay for department filter |
+| Profile nguoi khac | w4WUvsJ9KI | Opens when clicking user avatar/name |
+| Hover Avatar info user | Bf5XiTE7AO | Shows on hover over any user avatar/name |
+| Open secret box - chua mo | J3-4YFIpMM | Dialog for opening Secret Box |
+| Dropdown-profile | z4sCl3_Qtk | User profile dropdown (header) |
+| Dropdown-ngon ngu | hUyaaugye2 | Language switcher (header) |
+| Notification | D_jgDqvIc8 | Notification panel (header) |
+| Tieu chuan cong dong | Dpn7C89--r | Community standards (footer) |
+| Floating Action Button | _hphd32jN2 | Quick action widget |
+
+---
+
 ## Navigation Graph
 
 ```mermaid
@@ -691,6 +1015,16 @@ flowchart TD
         WriteKudoError["Viet Kudo - Loi\n(5c7PkAibyD)"]
     end
 
+    subgraph SecretBox["Secret Box"]
+        SecretBoxClosed["Open secret box\nchua mo\n(J3-4YFIpMM)"]
+    end
+
+    subgraph Overlays["Overlays / Dropdowns"]
+        HashtagDropdown["Dropdown list\nhashtag\n(p9zO-c4a4x)"]
+        DeptDropdown["Dropdown\nPhong ban\n(WXK5AYB_rG)"]
+        AvatarHover["Hover Avatar\ninfo user\n(Bf5XiTE7AO)"]
+    end
+
     subgraph Admin["Admin Section"]
         AdminOverview["Admin Overview\n(9ja9g9iJLW)"]
         AdminReview["Admin Review\n(MTExSUSdUn)"]
@@ -708,10 +1042,18 @@ flowchart TD
     PrizeSystem -->|Nav: About SAA| Homepage
     PrizeSystem -->|Nav: Sun* Kudos| KudosBoard
     PrizeSystem -->|Footer: Tieu chuan| TieuChuan
-    KudosBoard -->|Write Kudo| WriteKudo
-    KudosBoard -->|Kudo card click| ViewKudo
-    KudosBoard -->|Avatar click| OtherProfile
+    KudosBoard -->|Button ghi nhan| WriteKudo
+    KudosBoard -->|Highlight card / Xem chi tiet| ViewKudo
+    KudosBoard -->|Kudo post card click| ViewKudo
+    KudosBoard -->|Spotlight node click| ViewKudo
+    KudosBoard -->|Avatar/name click| OtherProfile
+    KudosBoard -->|Avatar/name hover| AvatarHover
+    KudosBoard -->|Hashtag filter| HashtagDropdown
+    KudosBoard -->|Phong ban filter| DeptDropdown
+    KudosBoard -->|Mo qua button| SecretBoxClosed
+    KudosBoard -->|Nav: About SAA| Homepage
     KudosBoard -->|Nav: Awards Info| PrizeSystem
+    KudosBoard -->|Footer: Tieu chuan| TieuChuan
     WriteKudo -->|Submit success| KudosBoard
     WriteKudo -->|Cancel / Close| KudosBoard
     WriteKudo -->|Validation fail| WriteKudoError
@@ -756,12 +1098,14 @@ flowchart TD
 | 2026-04-17 | He thong giai detailed | He thong giai component hierarchy | Full component tree, design items, interactions documented |
 | 2026-04-20 | Viet Kudo detailed | Viet Kudo component hierarchy | Full component tree, design items, validation rules, interactions, related screens documented |
 | 2026-04-20 | FAB detailed | FAB Collapsed (_hphd32jN2) + FAB Expanded (Sv7DFwBw1h) | Full specs: collapsed pill state, expanded action menu with Thể lệ/Viết KUDOS/Close buttons, navigation flows added |
+| 2026-04-20 | Sun* Kudos Live board detailed | Sun* Kudos - Live board (MaZUn5xHXZ) | Full component hierarchy, 60+ design items, navigation flows (Hashtag/Phong ban filters, Spotlight board, carousel, All Kudos feed, sidebar stats/leaderboard, Secret Box), heart business rules, star rating system |
 
 ---
 
 ## Next Steps
 
-- [ ] Complete detailed specification for remaining main pages (Sun* Kudos Live board, Profile screens)
+- [x] Complete detailed specification for Sun* Kudos Live board
+- [ ] Complete detailed specification for remaining main pages (Profile screens)
 - [ ] Document iOS mobile screen variants and their navigation flows
 - [ ] Map all API endpoints with request/response schemas
 - [ ] Verify navigation paths with design team

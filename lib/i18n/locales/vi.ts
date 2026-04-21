@@ -4,7 +4,7 @@ export const vi: Translations = {
   // Login
   'login.hero.line1': 'Bắt đầu hành trình của bạn cùng SAA 2025.',
   'login.hero.line2': 'Đăng nhập để khám phá!',
-  'login.button.text': 'LOGIN With Google',
+  'login.button.text': 'Đăng nhập với Google',
   'login.button.loading': 'Đang đăng nhập...',
   'login.error.supabase': 'Supabase chưa được cấu hình. Vui lòng kiểm tra file .env.local',
   'login.error.generic': 'Đã xảy ra lỗi khi đăng nhập. Vui lòng thử lại.',
@@ -140,4 +140,61 @@ export const vi: Translations = {
   'writeKudo.toolbar.numberedList': 'Danh sách đánh số',
   'writeKudo.toolbar.link': 'Chèn liên kết',
   'writeKudo.toolbar.quote': 'Trích dẫn',
+
+  // Live Board - Section Titles
+  'liveBoard.kvTitle': 'Hệ thống ghi nhận và cảm ơn',
+  'liveBoard.highlightKudos': 'HIGHLIGHT KUDOS',
+  'liveBoard.spotlightBoard': 'SPOTLIGHT BOARD',
+  'liveBoard.allKudos': 'ALL KUDOS',
+  'liveBoard.sectionSubtitle': 'Sun* Annual Awards 2025',
+
+  // Live Board - CTA
+  'liveBoard.cta.recognition': 'Hôm nay, bạn muốn gửi lời cảm ơn và ghi nhận đến ai?',
+  'liveBoard.cta.search': 'Tìm kiếm profile Sunner',
+
+  // Live Board - Filters
+  'liveBoard.filter.hashtag': 'Hashtag',
+  'liveBoard.filter.department': 'Phòng ban',
+
+  // Live Board - Stats
+  'liveBoard.stats.kudosReceived': 'Số Kudos bạn nhận được:',
+  'liveBoard.stats.kudosSent': 'Số Kudos bạn đã gửi:',
+  'liveBoard.stats.heartsReceived': 'Số tim bạn nhận được:',
+  'liveBoard.stats.secretBoxOpened': 'Số Secret Box bạn đã mở:',
+  'liveBoard.stats.secretBoxUnopened': 'Số Secret Box chưa mở:',
+  'liveBoard.stats.openSecretBox': 'Mở Secret Box',
+
+  // Live Board - Leaderboard
+  'liveBoard.leaderboard.title': '10 SUNNER NHẬN QUÀ MỚI NHẤT',
+  'liveBoard.leaderboard.empty': 'Chưa có dữ liệu',
+
+  // Live Board - Actions
+  'liveBoard.action.copyLink': 'Copy Link',
+  'liveBoard.action.viewDetail': 'Xem chi tiết',
+  'liveBoard.action.like': 'Thích',
+  'liveBoard.action.unlike': 'Bỏ thích',
+  'liveBoard.action.linkCopied': 'Link copied — ready to share!',
+
+  // Live Board - Empty States
+  'liveBoard.empty.kudos': 'Hiện tại chưa có Kudos nào.',
+  'liveBoard.empty.data': 'Chưa có dữ liệu',
+
+  // Live Board - Spotlight
+  'liveBoard.spotlight.search': 'Tìm kiếm',
+  'liveBoard.spotlight.panZoom': 'Pan/Zoom',
+  'liveBoard.spotlight.kudosCount': '{count} KUDOS',
+
+  // Live Board - Star Rating Tooltip
+  'liveBoard.starRating.tooltip1': '1 sao: Sunner nhận được 10 Kudos',
+  'liveBoard.starRating.tooltip2': '2 sao: Sunner nhận được 20 Kudos',
+  'liveBoard.starRating.tooltip3': '3 sao: Sunner nhận được 50 Kudos',
+
+  // Live Board - Carousel
+  'liveBoard.carousel.ariaLabel': 'Bộ sưu tập Highlight Kudos',
+  'liveBoard.carousel.prevSlide': 'Slide trước',
+  'liveBoard.carousel.nextSlide': 'Slide tiếp theo',
+
+  // Live Board - Errors
+  'liveBoard.error.likeFailed': 'Không thể thích Kudo. Vui lòng thử lại.',
+  'liveBoard.error.loadMore': 'Không thể tải thêm. Thử lại.',
 };
