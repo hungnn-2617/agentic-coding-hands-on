@@ -29,6 +29,16 @@
   --color-glow: #fae287;
   --color-secondary-btn-bg: rgba(255, 234, 158, 0.10);
 
+  /* Live Board design tokens */
+  --color-bg-card: #fff8e1;
+  --color-bg-sidebar: #00070c;
+  --color-text-hashtag: #d4271d;
+  --color-heart-active: #ff4d4d;
+  --color-border-highlight: #ffea9e;
+  --color-accent-gold-40: rgba(255, 234, 158, 0.40);
+  --color-overlay-spotlight: rgba(0, 0, 0, 0.7);
+  --color-avatar-fallback: #eeeeee;
+
   /* Gradient colors */
   --color-gradient-left: #00101a;
   --color-gradient-bottom: #00101a;

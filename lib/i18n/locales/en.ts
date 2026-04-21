@@ -135,4 +135,61 @@ export const en: Translations = {
   'writeKudo.toolbar.numberedList': 'Numbered list',
   'writeKudo.toolbar.link': 'Insert link',
   'writeKudo.toolbar.quote': 'Quote',
+
+  // Live Board - Section Titles
+  'liveBoard.kvTitle': 'Recognition and appreciation system',
+  'liveBoard.highlightKudos': 'HIGHLIGHT KUDOS',
+  'liveBoard.spotlightBoard': 'SPOTLIGHT BOARD',
+  'liveBoard.allKudos': 'ALL KUDOS',
+  'liveBoard.sectionSubtitle': 'Sun* Annual Awards 2025',
+
+  // Live Board - CTA
+  'liveBoard.cta.recognition': 'Today, who would you like to appreciate and recognize?',
+  'liveBoard.cta.search': 'Search Sunner profile',
+
+  // Live Board - Filters
+  'liveBoard.filter.hashtag': 'Hashtag',
+  'liveBoard.filter.department': 'Department',
+
+  // Live Board - Stats
+  'liveBoard.stats.kudosReceived': 'Kudos received:',
+  'liveBoard.stats.kudosSent': 'Kudos sent:',
+  'liveBoard.stats.heartsReceived': 'Hearts received:',
+  'liveBoard.stats.secretBoxOpened': 'Secret Boxes opened:',
+  'liveBoard.stats.secretBoxUnopened': 'Secret Boxes unopened:',
+  'liveBoard.stats.openSecretBox': 'Open Secret Box',
+
+  // Live Board - Leaderboard
+  'liveBoard.leaderboard.title': '10 LATEST GIFT RECIPIENTS',
+  'liveBoard.leaderboard.empty': 'No data available',
+
+  // Live Board - Actions
+  'liveBoard.action.copyLink': 'Copy Link',
+  'liveBoard.action.viewDetail': 'View details',
+  'liveBoard.action.like': 'Like',
+  'liveBoard.action.unlike': 'Unlike',
+  'liveBoard.action.linkCopied': 'Link copied — ready to share!',
+
+  // Live Board - Empty States
+  'liveBoard.empty.kudos': 'No Kudos available yet.',
+  'liveBoard.empty.data': 'No data available',
+
+  // Live Board - Spotlight
+  'liveBoard.spotlight.search': 'Search',
+  'liveBoard.spotlight.panZoom': 'Pan/Zoom',
+  'liveBoard.spotlight.kudosCount': '{count} KUDOS',
+
+  // Live Board - Star Rating Tooltip
+  'liveBoard.starRating.tooltip1': '1 star: Sunner received 10 Kudos',
+  'liveBoard.starRating.tooltip2': '2 stars: Sunner received 20 Kudos',
+  'liveBoard.starRating.tooltip3': '3 stars: Sunner received 50 Kudos',
+
+  // Live Board - Carousel
+  'liveBoard.carousel.ariaLabel': 'Highlight Kudos carousel',
+  'liveBoard.carousel.prevSlide': 'Previous slide',
+  'liveBoard.carousel.nextSlide': 'Next slide',
+
+  // Live Board - Errors
+  'liveBoard.error.likeFailed': 'Could not like Kudo. Please try again.',
+  'liveBoard.error.loadMore': 'Could not load more. Try again.',
 };

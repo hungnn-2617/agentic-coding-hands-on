@@ -83,6 +83,52 @@ export type TranslationKey =
   | 'prizePage.kudos.title'
   | 'prizePage.kudos.description'
   | 'prizePage.kudos.cta'
+  // Live Board - Section Titles
+  | 'liveBoard.kvTitle'
+  | 'liveBoard.highlightKudos'
+  | 'liveBoard.spotlightBoard'
+  | 'liveBoard.allKudos'
+  | 'liveBoard.sectionSubtitle'
+  // Live Board - CTA
+  | 'liveBoard.cta.recognition'
+  | 'liveBoard.cta.search'
+  // Live Board - Filters
+  | 'liveBoard.filter.hashtag'
+  | 'liveBoard.filter.department'
+  // Live Board - Stats
+  | 'liveBoard.stats.kudosReceived'
+  | 'liveBoard.stats.kudosSent'
+  | 'liveBoard.stats.heartsReceived'
+  | 'liveBoard.stats.secretBoxOpened'
+  | 'liveBoard.stats.secretBoxUnopened'
+  | 'liveBoard.stats.openSecretBox'
+  // Live Board - Leaderboard
+  | 'liveBoard.leaderboard.title'
+  | 'liveBoard.leaderboard.empty'
+  // Live Board - Actions
+  | 'liveBoard.action.copyLink'
+  | 'liveBoard.action.viewDetail'
+  | 'liveBoard.action.like'
+  | 'liveBoard.action.unlike'
+  | 'liveBoard.action.linkCopied'
+  // Live Board - Empty States
+  | 'liveBoard.empty.kudos'
+  | 'liveBoard.empty.data'
+  // Live Board - Spotlight
+  | 'liveBoard.spotlight.search'
+  | 'liveBoard.spotlight.panZoom'
+  | 'liveBoard.spotlight.kudosCount'
+  // Live Board - Star Rating
+  | 'liveBoard.starRating.tooltip1'
+  | 'liveBoard.starRating.tooltip2'
+  | 'liveBoard.starRating.tooltip3'
+  // Live Board - Carousel
+  | 'liveBoard.carousel.ariaLabel'
+  | 'liveBoard.carousel.prevSlide'
+  | 'liveBoard.carousel.nextSlide'
+  // Live Board - Errors
+  | 'liveBoard.error.likeFailed'
+  | 'liveBoard.error.loadMore'
   // Write Kudo Modal
   | 'writeKudo.title'
   | 'writeKudo.recipient.label'

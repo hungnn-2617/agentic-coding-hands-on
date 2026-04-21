@@ -19,6 +19,7 @@ export async function POST(request: NextRequest) {
     const kudo = await createKudo(body, user.id);
     return NextResponse.json({ data: kudo }, { status: 201 });
   } catch (err) {
+    console.error('[POST /api/kudos] Error:', err);
     const message = err instanceof Error ? err.message : 'Failed to create kudo';
     return NextResponse.json({ error: message }, { status: 400 });
   }

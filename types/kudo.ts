@@ -23,17 +23,21 @@ export interface KudoUser {
 }
 
 export interface Kudo {
-  id: string;
+  id: number;
   sender_id: string;
-  recipient_id: string;
+  receiver_id: string;
   title: string;
   content: string;
-  hashtags: string[];
-  images: string[];
   is_anonymous: boolean;
   anonymous_name: string | null;
+  status: 'published' | 'spam' | 'hidden';
+  like_count: number;
   created_at: string;
   updated_at: string;
+  deleted_at: string | null;
+  // Joined relations (populated by queries with joins)
+  hashtags?: string[];
+  images?: string[];
 }
 
 export interface CreateKudoPayload {
