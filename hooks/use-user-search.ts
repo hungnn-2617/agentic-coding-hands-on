@@ -16,7 +16,8 @@ export function useUserSearch(query: string, debounceMs = 300): UseUserSearchRes
   const abortRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
-    if (!query || query.length < 1) {
+    const trimmedQuery = query.trim();
+    if (!trimmedQuery || trimmedQuery.length < 1) {
       setResults([]);
       setIsLoading(false);
       return;
@@ -29,7 +30,7 @@ export function useUserSearch(query: string, debounceMs = 300): UseUserSearchRes
       abortRef.current = controller;
 
       try {
-        const res = await fetch(`/api/users/search?q=${encodeURIComponent(query)}`, {
+        const res = await fetch(`/api/users/search?q=${encodeURIComponent(trimmedQuery)}`, {
           signal: controller.signal,
         });
         if (!res.ok) throw new Error('Search failed');

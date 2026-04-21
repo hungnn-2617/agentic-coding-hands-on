@@ -52,7 +52,7 @@
 
 - [x] T018 [US1] Create `useReducer`-based form state hook in `hooks/use-write-kudo.ts` — all 15 state fields, actions: SET_RECIPIENT, SET_TITLE, SET_CONTENT, ADD_HASHTAG, REMOVE_HASHTAG, ADD_IMAGE, REMOVE_IMAGE, SET_ANONYMOUS, SET_ANONYMOUS_NAME, SET_SUBMITTING, SET_ERRORS, RESET
 - [x] T019 [US1] Create shared field label component in `components/write-kudo/field-label.tsx` — text + required asterisk (*) in red #CF1322, `aria-required` support, i18n label via `t()` prop
-- [x] T020 [US1] Create modal component in `components/write-kudo/write-kudo-modal.tsx` — overlay (bg rgba(0,16,26,0.8)), panel (752px, bg #FFF8E1, r:24px, p:40px, gap:32px), `role="dialog"`, `aria-modal="true"`, `aria-labelledby`, focus trap, Esc close, overlay click close, scroll `max-h-[calc(100vh-40px)] overflow-y-auto`, background scroll lock
+- [x] T020 [US1] Create modal component in `components/write-kudo/write-kudo-modal.tsx` — overlay (bg rgba(0,16,26,0.8)), panel (775px, bg #FFF8E1, r:24px, p:40px, gap:32px), `role="dialog"`, `aria-modal="true"`, `aria-labelledby`, focus trap, Esc close, overlay click close, scroll `max-h-[calc(100vh-40px)] overflow-y-auto`, background scroll lock
 - [x] T021 [US8] Create danh hieu field in `components/write-kudo/danh-hieu-field.tsx` — FieldLabel "Danh hiệu *" + text input (p:16px 24px, r:8px, border:#998C5F) + 2-line helper text (#999) + `aria-describedby` for errors + max length 1024
 - [x] T022 [US1] Create action bar in `components/write-kudo/action-bar.tsx` — Cancel button (p:16px 40px, r:4px, bg:gold/10%, border:#998C5F, icon:close-icon) + Submit button (flex:1, h:60px, r:8px, bg:#FFEA9E, text:22px/700, icon:send-icon), disabled state (bg:#D4CCA8, color:#999), loading state ("Đang gửi...")
 - [x] T023 [US1] Wire form validation in `write-kudo-modal.tsx` — check all required fields (recipient, title, content, hashtags), show red border + error text on invalid fields via `role="alert"`, disable submit button until valid
@@ -145,7 +145,7 @@
 
 **Independent test**: Resize viewport to mobile → modal goes full-screen. Keyboard-only navigation works end-to-end.
 
-- [x] T047 [US9] Implement responsive breakpoints in `write-kudo-modal.tsx` — Mobile (<640px): full-screen, r:0, p:16px, fields stack vertically, action buttons column + full-width. Tablet (640-1023px): w:90vw, max-w:752px, p:24px, thumbnails 64x64. Desktop (>=1024px): w:752px, centered.
+- [x] T047 [US9] Implement responsive breakpoints in `write-kudo-modal.tsx` — Mobile (<640px): full-screen, r:0, p:16px, fields stack vertically, action buttons column + full-width. Tablet (640-1023px): w:90vw, max-w:775px, p:24px, thumbnails 64x64. Desktop (>=1024px): w:775px, centered.
 - [x] T048 [US9] Apply responsive to all child components — `recipient-field.tsx`, `danh-hieu-field.tsx`, `hashtag-field.tsx`, `image-upload-field.tsx`: stack label above input on mobile (flex-col), image thumbnails flex-wrap. `editor-toolbar.tsx`: horizontal scroll or flex-wrap on mobile. `action-bar.tsx`: flex-col + both full-width on mobile.
 - [x] T049 Create minimal Sun Kudos page in `app/(main)/sun-kudos/page.tsx` — RSC page with "Viết Kudo" CTA button that opens the WriteKudoModal. Include `loading.tsx` and `error.tsx` per constitution.
 - [x] T050 Handle edge cases in `write-kudo-modal.tsx` — network failure retry (toast + keep modal open), modal scroll on short viewports (already handled by max-height), image cleanup on discard (delete orphaned uploads)

@@ -138,7 +138,7 @@
 | Property | Value | Notes |
 |---|---|---|
 | Page width | 1440px | Fixed desktop width |
-| Modal width | 752px | Fixed desktop modal width |
+| Modal width | 775px | Fixed desktop modal width |
 | Modal height | 1012px | Content-driven (scrollable if needed) |
 | Modal content width | 672px | 752 - (40 * 2) inner content |
 
@@ -266,7 +266,7 @@
 | Property | Value | CSS |
 |---|---|---|
 | **Node ID** | 520:11647 | - |
-| width | 752px | `width: 752px` / `max-width: 100%` |
+| width | 775px | `width: 775px` / `max-width: 100%` |
 | height | 1012px | `height: auto` (content-driven) |
 | padding | 40px | `padding: 40px` |
 | background | rgba(255, 248, 225, 1) | `background: #FFF8E1` |
@@ -773,7 +773,7 @@ Overlay (w: 1440, h: 1024, bg: rgba(0,16,26,0.8))
 
 | Component | Changes |
 |---|---|
-| Modal | width: 90vw, max-width: 752px, padding: 24px |
+| Modal | width: 90vw, max-width: 775px, padding: 24px |
 | Sections | Scale proportionally |
 | Image thumbnails | 64x64px |
 
@@ -781,7 +781,7 @@ Overlay (w: 1440, h: 1024, bg: rgba(0,16,26,0.8))
 
 | Component | Changes |
 |---|---|
-| Modal | width: 752px, centered on overlay |
+| Modal | width: 775px, centered on overlay |
 | All components | Match Figma design exactly |
 
 ---
@@ -827,7 +827,7 @@ Overlay (w: 1440, h: 1024, bg: rgba(0,16,26,0.8))
 | Design Element | Figma Node ID | Tailwind / CSS Class | React Component |
 |---|---|---|---|
 | Modal overlay | - | `fixed inset-0 bg-[#00101A]/80 z-50 flex items-center justify-center` | `<WriteKudoModal />` |
-| Modal panel | 520:11647 | `w-[752px] max-w-full max-h-[calc(100vh-40px)] overflow-y-auto bg-[#FFF8E1] rounded-3xl p-10 flex flex-col gap-8` | `<WriteKudoForm />` |
+| Modal panel | 520:11647 | `w-[775px] max-w-full max-h-[calc(100vh-40px)] overflow-y-auto bg-[#FFF8E1] rounded-3xl p-10 flex flex-col gap-8` | `<WriteKudoForm />` |
 | Modal title | I520:11647;520:9870 | `text-[32px] font-bold leading-10 text-[#00101A] text-center` | `<h2>` |
 | Recipient row | I520:11647;520:9871 | `flex items-center gap-4` | `<RecipientField />` |
 | Section label | I520:11647;520:9872 | `text-[22px] font-bold leading-7 text-[#00101A] flex items-center gap-0.5` | `<FieldLabel />` |

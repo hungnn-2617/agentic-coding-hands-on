@@ -267,8 +267,8 @@ Add to `lib/i18n/types.ts` (TranslationKey union), `lib/i18n/locales/vi.ts`, and
 - 6.1: Create `components/write-kudo/anonymous-checkbox.tsx` — Native `<input type="checkbox">` with `aria-checked`, conditional name field with expand animation, label color toggle (#999 unchecked → #00101A checked). Anonymous name field is **optional** — defaults to "Ẩn danh" if left empty (Q2).
 - 6.2: Implement responsive breakpoints per design-style.md:
   - Mobile (< 640px): full-screen modal, `border-radius: 0`, `padding: 16px`, fields stack vertically, action buttons full-width column
-  - Tablet (640-1023px): `width: 90vw`, `max-width: 752px`, `padding: 24px`, thumbnails 64x64
-  - Desktop (>= 1024px): `width: 752px`, centered, match Figma exactly
+  - Tablet (640-1023px): `width: 90vw`, `max-width: 775px`, `padding: 24px`, thumbnails 64x64
+  - Desktop (>= 1024px): `width: 775px`, centered, match Figma exactly
 - 6.3: Edge cases — network failure retry (keep modal open, show error toast), modal scroll on short viewports, image cleanup on discard
 - 6.4: Cross-cutting a11y audit — verify all ARIA attributes end-to-end with axe-core, test complete keyboard-only flow, verify color contrast (note: grey #999 on white fails AA — use #666 for placeholders)
 - 6.5: Create `app/(main)/sun-kudos/page.tsx` — Kudos page with feed/list + "Viết Kudo" CTA button that triggers the modal. (This is a minimal page shell — the full Kudos feed is a separate feature.)

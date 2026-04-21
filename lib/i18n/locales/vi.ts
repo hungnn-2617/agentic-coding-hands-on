@@ -197,4 +197,9 @@ export const vi: Translations = {
   // Live Board - Errors
   'liveBoard.error.likeFailed': 'Không thể thích Kudo. Vui lòng thử lại.',
   'liveBoard.error.loadMore': 'Không thể tải thêm. Thử lại.',
+
+  // Live Board - Search
+  'liveBoard.searchPlaceholder': 'Nhập tên Sunner để tìm kiếm...',
+  'liveBoard.noSearchResults': 'Không tìm thấy kết quả',
+  'liveBoard.searchHint': 'Nhập tên để tìm kiếm profile Sunner',
 };
