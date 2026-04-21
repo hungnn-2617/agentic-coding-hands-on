@@ -4,22 +4,8 @@ interface PenIconProps {
 
 export function PenIcon({ className }: PenIconProps) {
   return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3Z"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+      <path d="M20.8077 6.73C21.1977 6.34 21.1977 5.69 20.8077 5.32L18.4677 2.98C18.0977 2.59 17.4477 2.59 17.0577 2.98L15.2177 4.81L18.9677 8.56M3.09766 16.94V20.69H6.84766L17.9077 9.62L14.1577 5.87L3.09766 16.94Z" fill="currentColor" />
     </svg>
   );
 }

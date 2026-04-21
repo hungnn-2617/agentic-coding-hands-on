@@ -28,3 +28,4 @@ export { StarIcon } from './star-icon';
 export { GiftIcon } from './gift-icon';
 export { ExternalIcon } from './external-icon';
 export { CopyIcon } from './copy-icon';
+export { SaaActionIcon } from './saa-action-icon';

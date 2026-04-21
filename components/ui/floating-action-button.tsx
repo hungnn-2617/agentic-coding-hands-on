@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { PenIcon, SaaSmallIcon, CloseIcon } from '@/components/icons';
+import { PenIcon, SaaActionIcon, CloseIcon } from '@/components/icons';
 import { useClickOutside } from '@/hooks/use-click-outside';
 
 interface FloatingActionButtonProps {
@@ -112,7 +112,7 @@ export function FloatingActionButton({ onWriteKudo }: FloatingActionButtonProps)
             animationDelay: closing ? '100ms' : '0ms',
           }}
         >
-          <SaaSmallIcon className="h-6 w-6 text-[#00101A]" />
+          <SaaActionIcon />
           <span className="font-montserrat text-2xl font-bold leading-8 text-[#00101A]">
             Thể lệ
           </span>
@@ -175,7 +175,7 @@ export function FloatingActionButton({ onWriteKudo }: FloatingActionButtonProps)
       <span className="font-montserrat text-2xl font-bold leading-8 text-[#00101A]">
         /
       </span>
-      <SaaSmallIcon className="h-6 w-6 text-[#00101A]" />
+      <SaaActionIcon />
     </div>
   );
 }

@@ -14,8 +14,14 @@ export async function GET(request: NextRequest) {
   }
 
   const query = (request.nextUrl.searchParams.get('q') ?? '').trim();
+
+  // SECURITY: Validate query length to prevent DoS attacks
+  const MAX_QUERY_LENGTH = 200;
   if (query.length < 1) {
     return NextResponse.json({ data: [] });
+  }
+  if (query.length > MAX_QUERY_LENGTH) {
+    return NextResponse.json({ error: 'Query too long' }, { status: 400 });
   }
 
   try {
