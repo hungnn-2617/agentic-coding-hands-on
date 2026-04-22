@@ -69,7 +69,12 @@
       "Bash(npm uninstall:*)",
       "Bash(npx wrangler login --help:*)",
       "Bash(npx wrangler login)",
-      "Bash(yarn install)"
+      "Bash(yarn install)",
+      "Bash(yarn build:*)",
+      "Bash(yarn test:run:*)",
+      "Bash(yarn remove:*)",
+      "Bash(yarn build:cloudflare:*)",
+      "Bash(yarn deploy:cloudflare:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

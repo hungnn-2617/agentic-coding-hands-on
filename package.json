@@ -9,9 +9,9 @@
     "lint": "eslint",
     "test": "vitest",
     "test:run": "vitest run",
-    "build:cloudflare": "yarn dlx @opennextjs/cloudflare@latest build",
-    "preview:cloudflare": "yarn wrangler dev",
-    "deploy:cloudflare": "yarn wrangler deploy"
+    "build:cloudflare": "npx @opennextjs/cloudflare build",
+    "preview:cloudflare": "npx wrangler dev",
+    "deploy:cloudflare": "npx wrangler deploy"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.2",
@@ -23,7 +23,6 @@
     "@tiptap/pm": "^3.22.4",
     "@tiptap/react": "^3.22.4",
     "@tiptap/starter-kit": "^3.22.4",
-    "isomorphic-dompurify": "^3.9.0",
     "next": "^15.5.15",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
