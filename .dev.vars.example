@@ -1,0 +1,9 @@
+# Cloudflare Workers Environment Variables
+# Copy this file to .dev.vars for local development with wrangler
+
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+
+# Note: For production, configure these in Cloudflare Dashboard:
+# Workers & Pages > Your Project > Settings > Variables
