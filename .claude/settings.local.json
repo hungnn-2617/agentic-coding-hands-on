@@ -74,7 +74,8 @@
       "Bash(yarn test:run:*)",
       "Bash(yarn remove:*)",
       "Bash(yarn build:cloudflare:*)",
-      "Bash(yarn deploy:cloudflare:*)"
+      "Bash(yarn deploy:cloudflare:*)",
+      "Bash(yarn coverage:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
