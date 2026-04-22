@@ -33,6 +33,7 @@ export function FloatingActionButton({ onWriteKudo }: FloatingActionButtonProps)
 
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key === 'Escape') {
+        // eslint-disable-next-line react-hooks/immutability
         handleCollapse();
       }
     }
