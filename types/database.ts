@@ -188,27 +188,54 @@ export interface Database {
       };
       secret_boxes: {
         Row: {
-          id: string;
+          id: number;
           user_id: string;
+          badge_id: number | null;
           is_opened: boolean;
-          prize_id: string | null;
           opened_at: string | null;
           created_at: string;
         };
         Insert: {
-          id?: string;
+          id?: number;
           user_id: string;
+          badge_id?: number | null;
           is_opened?: boolean;
-          prize_id?: string | null;
           opened_at?: string | null;
           created_at?: string;
         };
         Update: {
-          id?: string;
+          id?: number;
           user_id?: string;
+          badge_id?: number | null;
           is_opened?: boolean;
-          prize_id?: string | null;
           opened_at?: string | null;
+          created_at?: string;
+        };
+        Relationships: [];
+      };
+      badges: {
+        Row: {
+          id: number;
+          name: string;
+          description: string | null;
+          image_url: string | null;
+          drop_rate: number;
+          created_at: string;
+        };
+        Insert: {
+          id?: number;
+          name: string;
+          description?: string | null;
+          image_url?: string | null;
+          drop_rate: number;
+          created_at?: string;
+        };
+        Update: {
+          id?: number;
+          name?: string;
+          description?: string | null;
+          image_url?: string | null;
+          drop_rate?: number;
           created_at?: string;
         };
         Relationships: [];
