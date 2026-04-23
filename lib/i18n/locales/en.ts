@@ -197,14 +197,4 @@ export const en: Translations = {
   'liveBoard.searchPlaceholder': 'Enter Sunner name to search...',
   'liveBoard.noSearchResults': 'No results found',
   'liveBoard.searchHint': 'Enter a name to search for Sunner profile',
-
-  // Secret Box Modal
-  'secretBox.title': 'DISCOVER YOUR SECRET BOX',
-  'secretBox.instruction': 'Click the box to open',
-  'secretBox.countLabel': 'Unopened Secretbox',
-  'secretBox.closeAria': 'Close',
-  'secretBox.boxAria': 'Open Secret Box',
-  'secretBox.badgeRevealed': '{badgeName} has been revealed!',
-  'secretBox.error.network': 'Unable to open box. Please try again.',
-  'secretBox.error.noBoxes': 'You have no Secret Boxes remaining.',
 };

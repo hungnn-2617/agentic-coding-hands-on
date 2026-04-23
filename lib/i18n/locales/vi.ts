@@ -202,14 +202,4 @@ export const vi: Translations = {
   'liveBoard.searchPlaceholder': 'Nhập tên Sunner để tìm kiếm...',
   'liveBoard.noSearchResults': 'Không tìm thấy kết quả',
   'liveBoard.searchHint': 'Nhập tên để tìm kiếm profile Sunner',
-
-  // Secret Box Modal
-  'secretBox.title': 'KHÁM PHÁ SECRET BOX CỦA BẠN',
-  'secretBox.instruction': 'Click vào box để mở',
-  'secretBox.countLabel': 'Secretbox chưa mở',
-  'secretBox.closeAria': 'Đóng',
-  'secretBox.boxAria': 'Mở Secret Box',
-  'secretBox.badgeRevealed': '{badgeName} đã được mở!',
-  'secretBox.error.network': 'Không thể mở hộp. Vui lòng thử lại.',
-  'secretBox.error.noBoxes': 'Bạn không còn Secret Box nào.',
 };

@@ -168,16 +168,7 @@ export type TranslationKey =
   | 'writeKudo.toolbar.strikethrough'
   | 'writeKudo.toolbar.numberedList'
   | 'writeKudo.toolbar.link'
-  | 'writeKudo.toolbar.quote'
-  // Secret Box Modal
-  | 'secretBox.title'
-  | 'secretBox.instruction'
-  | 'secretBox.countLabel'
-  | 'secretBox.closeAria'
-  | 'secretBox.boxAria'
-  | 'secretBox.badgeRevealed'
-  | 'secretBox.error.network'
-  | 'secretBox.error.noBoxes';
+  | 'writeKudo.toolbar.quote';
 
 export type Translations = Record<TranslationKey, string>;
 

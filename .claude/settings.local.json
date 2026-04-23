@@ -75,8 +75,7 @@
       "Bash(yarn remove:*)",
       "Bash(yarn build:cloudflare:*)",
       "Bash(yarn deploy:cloudflare:*)",
-      "Bash(yarn coverage:*)",
-      "WebFetch(domain:momorph.ai)"
+      "Bash(yarn coverage:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -27,7 +27,7 @@ export async function toggleKudoLikeAction(
  */
 export async function openSecretBoxAction(): Promise<{
   success: boolean;
-  prizeId: number | null;
+  prizeId: string | null;
 }> {
   const supabase = await createClient();
   if (!supabase) return { success: false, prizeId: null };
@@ -40,7 +40,7 @@ export async function openSecretBoxAction(): Promise<{
   // Find the first unopened secret box for this user
   const { data: box, error: fetchError } = await supabase
     .from('secret_boxes')
-    .select('id, badge_id')
+    .select('id, prize_id')
     .eq('user_id', user.id)
     .eq('is_opened', false)
     .order('created_at', { ascending: true })
@@ -61,5 +61,5 @@ export async function openSecretBoxAction(): Promise<{
     return { success: false, prizeId: null };
   }
 
-  return { success: true, prizeId: box.badge_id };
+  return { success: true, prizeId: box.prize_id };
 }
